@@ -4,9 +4,15 @@ using UnityEngine;
 
 public class Room : MonoBehaviour
 {
-
-    public Room[] neighbors = new Room[4];
+    public bool IsPlaced = false;
+    public bool[] doors = new bool[4];
+    private Room[] neighbors = new Room[4];
     
+
+    public void Place(Vector2 coordinate)
+    {
+
+    }
     public void SetNeighbors(Room top, Room right, Room bottom, Room left)
     {
         neighbors[0] = top;
