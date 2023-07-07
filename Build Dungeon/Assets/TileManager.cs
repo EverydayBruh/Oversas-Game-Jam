@@ -9,23 +9,27 @@ public class TileManager : MonoBehaviour
 
     public int width; // Ширина матрицы
     public int height; // Высота матрицы
+    private int last_width;
+    private int last_heaight;
+    private GameObject tilemap;
 
 
-    
 
     // Инициализация матрицы с пустыми RoomSlot
     void OnValidate()
     {
         ClearRoomSlots();
-
+        tilemap = Instantiate(new GameObject());
         roomSlots = new RoomSlot[width, height];
         for (int x = 0; x < width; x++)
         {
             for (int y = 0; y < height; y++)
             {
-                roomSlots[x, y] = new RoomSlot(new Vector2(x, y), tile);
+                roomSlots[x, y] = new RoomSlot(new Vector2(x, y), tile, tilemap);
             }
         }
+        last_width= width;
+        last_heaight= height;
     }
     
     
@@ -44,15 +48,21 @@ public class TileManager : MonoBehaviour
     public int ClearRoomSlots()
     {
         // Обнуляем каждый элемент матрицы RoomSlots
-        if (roomSlots == null) return 1;
-
-        for (int x = 0; x < width; x++)
+        if(tilemap == null) { return 1; }
+        foreach (Transform child in tilemap.transform)
         {
-            for (int y = 0; y < height; y++)
-            { 
-                if(roomSlots[x, y]) roomSlots[x, y].RoomClear();
-            }
+            GameObject.Destroy(child.gameObject);
         }
+        Destroy(tilemap);
+        //if (roomSlots == null) return 1;
+
+        //for (int x = 0; x < last_width; x++)
+        //{
+        //    for (int y = 0; y < last_heaight; y++)
+        //    { 
+        //        if(roomSlots[x, y]) roomSlots[x, y].RoomClear();
+        //    }
+        //}
         return 0;
         //roomSlots = null;
     }

@@ -11,13 +11,14 @@ public class RoomSlot : MonoBehaviour
     private Vector2 coordinates= Vector2.zero;
     
     
-    public RoomSlot(Vector2 coordinates, GameObject preafab)
+    public RoomSlot(Vector2 coordinates, GameObject preafab, GameObject parent)
     {
         Debug.Log("Created");
         this.coordinates = coordinates;
         Transform trans = preafab.transform;
         trans.position = coordinates;
         reference = Instantiate(preafab, trans);
+        reference.transform.parent = parent.transform;
     }
 
     public void AddRoom(Room room)
