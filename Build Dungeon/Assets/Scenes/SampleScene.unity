@@ -153,8 +153,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tile: {fileID: 8478128512776476885, guid: 5536a51455a78b34c8f7f5bed4873d3d, type: 3}
-  width: 7
-  height: 8
+  width: 4
+  height: 4
+  distance_multiplier: 3.6
 --- !u!4 &449147213
 Transform:
   m_ObjectHideFlags: 0

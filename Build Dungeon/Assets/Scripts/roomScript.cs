@@ -7,7 +7,8 @@ public class Room : MonoBehaviour
     public bool IsPlaced = false;
     public bool[] doors = new bool[4];
     private Room[] neighbors = new Room[4];
-    
+    private Vector2 coordinates = Vector2.zero;
+
 
     public void Place(Vector2 coordinate)
     {
@@ -19,6 +20,12 @@ public class Room : MonoBehaviour
         neighbors[1] = right;
         neighbors[2] = bottom;
         neighbors[3] = left;
+    }
+
+    public void Attach(Vector2 coordinates)
+    {
+        this.coordinates = coordinates;
+        IsPlaced= true;
     }
 
     public void AddRoom(Direction direction, Room newRoom)

@@ -1,14 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class TileManager : MonoBehaviour
 {
     public GameObject tile;
-    private RoomSlot[,] roomSlots; // Матрица RoomSlot
+    private GameObject[,] roomSlots; // Матрица RoomSlot
 
     public int width; // Ширина матрицы
     public int height; // Высота матрицы
+    public float distance_multiplier = 3f;
     private int last_width;
     private int last_heaight;
     private GameObject tilemap;
@@ -16,16 +18,19 @@ public class TileManager : MonoBehaviour
 
 
     // Инициализация матрицы с пустыми RoomSlot
-    void OnValidate()
+    void Start()
     {
         ClearRoomSlots();
-        tilemap = Instantiate(new GameObject());
-        roomSlots = new RoomSlot[width, height];
+        tilemap = Instantiate(new GameObject(), new Vector3(0,0), new Quaternion());
+        roomSlots = new GameObject[width, height];
+        GameObject temp_tile;
         for (int x = 0; x < width; x++)
         {
             for (int y = 0; y < height; y++)
             {
-                roomSlots[x, y] = new RoomSlot(new Vector2(x, y), tile, tilemap);
+                Vector3 pos = new Vector3(x,y) * distance_multiplier;
+                temp_tile = Instantiate(tile, pos, new Quaternion(), tilemap.transform);
+                //temp_tile.transform.parent = tilemap.transform;
             }
         }
         last_width= width;
@@ -35,7 +40,7 @@ public class TileManager : MonoBehaviour
     
 
     // Метод для получения RoomSlot по координатам
-    public RoomSlot GetRoomSlot(int x, int y)
+    public GameObject GetRoomSlot(int x, int y)
     {
         if (x >= 0 && x < width && y >= 0 && y < height)
         {
@@ -48,9 +53,11 @@ public class TileManager : MonoBehaviour
     public int ClearRoomSlots()
     {
         // Обнуляем каждый элемент матрицы RoomSlots
-        if(tilemap == null) { return 1; }
+        Debug.Log("Clear Started");
+        if (tilemap == null) { return 1; }
         foreach (Transform child in tilemap.transform)
         {
+            Debug.Log(child.name);
             GameObject.Destroy(child.gameObject);
         }
         Destroy(tilemap);

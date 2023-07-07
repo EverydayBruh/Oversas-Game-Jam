@@ -7,24 +7,24 @@ public class RoomSlot : MonoBehaviour
     public bool IsEmpty = true;
     public bool IsLocked = false;
     private GameObject reference;
-    public GameObject Room = null;
+    public GameObject room = null;
     private Vector2 coordinates= Vector2.zero;
     
     
-    public RoomSlot(Vector2 coordinates, GameObject preafab, GameObject parent)
-    {
-        Debug.Log("Created");
-        this.coordinates = coordinates;
-        Transform trans = preafab.transform;
-        trans.position = coordinates;
-        reference = Instantiate(preafab, trans);
-        reference.transform.parent = parent.transform;
-    }
+    //public RoomSlot(Vector2 coordinates, GameObject preafab, GameObject parent)
+    //{
+    //    Debug.Log("Created");
+    //    this.coordinates = coordinates;
+    //    Transform trans = preafab.transform;
+    //    trans.position = coordinates;
+    //    reference = Instantiate(preafab, trans);
+    //    reference.transform.parent = parent.transform;
+    //}
 
-    public void AddRoom(Room room)
+    public void AddRoom(GameObject newroom)
     {
         IsEmpty= false;
-
+        room = newroom;
     }
 
     public void RoomClear()
