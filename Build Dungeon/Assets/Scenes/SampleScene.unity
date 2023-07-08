@@ -454,6 +454,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1355742836339704372, guid: 10520954bede276429958c230244aacc, type: 3}
+      propertyPath: m_TagString
+      value: TileManager
+      objectReference: {fileID: 0}
     - target: {fileID: 2240710841837922193, guid: 10520954bede276429958c230244aacc, type: 3}
       propertyPath: m_Enabled
       value: 0
