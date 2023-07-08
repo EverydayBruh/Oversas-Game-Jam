@@ -8,20 +8,18 @@ public class TileManager : MonoBehaviour
     public GameObject tile;
     private GameObject[,] roomSlots; // Матрица RoomSlot
 
-    public int width; // Ширина матрицы
-    public int height; // Высота матрицы
+    public uint width; // Ширина матрицы
+    public uint height; // Высота матрицы
     public float distance_multiplier = 3f;
-    private int last_width;
-    private int last_heaight;
     private GameObject tilemap;
 
 
 
     // Инициализация матрицы с пустыми RoomSlot
-    void Start()
+    public void UpdateSlots()
     {
         ClearRoomSlots();
-        tilemap = Instantiate(new GameObject(), new Vector3(0,0), new Quaternion());
+        tilemap = new GameObject();//Instantiate(new GameObject(), new Vector3(0,0), new Quaternion());
         roomSlots = new GameObject[width, height];
         GameObject temp_tile;
         for (int x = 0; x < width; x++)
@@ -30,11 +28,10 @@ public class TileManager : MonoBehaviour
             {
                 Vector3 pos = new Vector3(x,y) * distance_multiplier;
                 temp_tile = Instantiate(tile, pos, new Quaternion(), tilemap.transform);
+                temp_tile.GetComponent<RoomSlot>().SetCoordinates(new Vector2(x, y));
                 //temp_tile.transform.parent = tilemap.transform;
             }
         }
-        last_width= width;
-        last_heaight= height;
     }
     
     
@@ -58,9 +55,9 @@ public class TileManager : MonoBehaviour
         foreach (Transform child in tilemap.transform)
         {
             Debug.Log(child.name);
-            GameObject.Destroy(child.gameObject);
+            GameObject.DestroyImmediate(child.gameObject);
         }
-        Destroy(tilemap);
+        DestroyImmediate(tilemap);
         //if (roomSlots == null) return 1;
 
         //for (int x = 0; x < last_width; x++)

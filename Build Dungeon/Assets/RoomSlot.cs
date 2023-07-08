@@ -27,6 +27,10 @@ public class RoomSlot : MonoBehaviour
         room = newroom;
     }
 
+    public void SetCoordinates(Vector2 coordinates)
+    {
+        this.coordinates= coordinates;
+    }
     public void RoomClear()
     {
         Debug.Log("Cleared");
