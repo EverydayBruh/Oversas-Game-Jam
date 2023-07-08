@@ -8,10 +8,12 @@ public class DragScript : MonoBehaviour
     private Vector3 offset;
     public TileManager TileManager;
     private GameObject roomSlot;
+    private Vector3 primalPos;
 
     void Start()
     {
         TileManager = GameObject.FindGameObjectWithTag("TileManager").GetComponent<TileManager>();
+        primalPos = transform.position;
     }
 
     void Update()
@@ -34,6 +36,10 @@ public class DragScript : MonoBehaviour
         {
             Destroy(roomSlot);
         }
+        else 
+        {
+            transform.position = primalPos;
+        }   
         dragging = false;
     }
 }
