@@ -50,18 +50,20 @@ public class TileManager : MonoBehaviour
     {
         //.Debug.Log(x);
         //Debug.Log(y);
-        if (x >= width || y >= height || x<0 || y<0) return null;
+        if (!CheckCoordinates(x,y)) return null;
         //Debug.Log("Coord OK");
         return roomSlots[x, y];
 
     }
     public RoomSlot SlotByCoord(int x, int y)
     {
+        if (!CheckCoordinates(x, y)) return null;
         return ObjSlotByCoord(x,y).GetComponent<RoomSlot>();
     }
 
     public Room RoomByCoord(int x, int y)
     {
+        if (!CheckCoordinates(x, y)) return null;
         return SlotByCoord(x, y).GetRoom();
     }
 
@@ -88,5 +90,10 @@ public class TileManager : MonoBehaviour
         }
         DestroyImmediate(tilemap);
         return 0;
+    }
+    private bool CheckCoordinates(int x, int y)
+    {
+        if (x >= width || y >= height || x < 0 || y < 0) return false;
+        return true;
     }
 }

@@ -21,12 +21,16 @@ public class RoomSlot : MonoBehaviour
     //    reference.transform.parent = parent.transform;
     //}
 
-    public void AddRoom(GameObject newroom)
+    public int AddRoom(GameObject newroom)
     {
+        if(!IsEmpty) return 1;
         IsEmpty= false;
         room = newroom;
+        room.GetComponent<Room>().Place(coordinates, this.transform.position);
+        return 0;
     }
 
+    
     public Room GetRoom()
     {
         if(room == null) return null;

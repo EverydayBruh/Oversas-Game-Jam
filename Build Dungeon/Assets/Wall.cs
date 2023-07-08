@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[ExecuteAlways]
+//[ExecuteAlways]
 public class Wall : MonoBehaviour
 {
     public bool haveDoor = false;
@@ -11,13 +11,13 @@ public class Wall : MonoBehaviour
 
     public SpriteRenderer spriteRenderer;
 
-    private void OnValidate()
-    {
-        UpdateSprite();
-    }
+    //private void OnValidate()
+    //{
+    //    UpdateSprite();
+    //}
 
 
-    private void UpdateSprite()
+    public void UpdateSprite()
     {
         if (haveDoor)
         {

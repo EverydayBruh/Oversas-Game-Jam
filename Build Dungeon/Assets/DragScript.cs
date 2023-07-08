@@ -5,6 +5,7 @@ using UnityEngine;
 public class DragScript : MonoBehaviour
 {
     private bool dragging = false;
+    public bool canDrag = true;
     private Vector3 offset;
     public TileManager TileManager;
     private GameObject roomSlot;
@@ -28,18 +29,22 @@ public class DragScript : MonoBehaviour
     private void OnMouseDown()
     {
         offset = transform.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);   
-        dragging = true;
+        if(canDrag) dragging = true;
     }
-    private void OnMouseUp()
+    private int OnMouseUp()
     {
+        if(!dragging) { return -1; }
+        Debug.Log(gameObject.name);
+        dragging = false;
+        int f = 1;
         if (roomSlot != null)
         {
-            Destroy(roomSlot);
+            f = roomSlot.GetComponent<RoomSlot>().AddRoom(gameObject);
         }
-        else 
+        if(f==1)
         {
             transform.position = primalPos;
-        }   
-        dragging = false;
+        }   else { canDrag= false; }
+        return 0;
     }
 }
