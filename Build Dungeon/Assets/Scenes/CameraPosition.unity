@@ -156,7 +156,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3548399590302806199, guid: d985b6d6a6473fe47b81ffa156fa2691, type: 3}
       propertyPath: RoomInventoryCapacity
-      value: 7
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5381711137144391737, guid: d985b6d6a6473fe47b81ffa156fa2691, type: 3}
       propertyPath: m_Name

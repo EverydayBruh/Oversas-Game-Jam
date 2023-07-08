@@ -10,7 +10,7 @@ public class RoomInventory : MonoBehaviour
     public TileManager tileManager;
     private Room[] RoomsInventory;
     public Room room;
-    public int RoomInventoryCapacity = 7;
+    public uint RoomInventoryCapacity = 7;
     public float distance_multiplier = 3f;
     public float y_inventoryOffset;
 
@@ -30,7 +30,7 @@ public class RoomInventory : MonoBehaviour
                 Vector3 pos = transform.position + new Vector3(x - (RoomInventoryCapacity/2), 0) * distance_multiplier;
                 RoomsInventory[x] = Instantiate(room, pos, new Quaternion(), this.transform);
                 RoomsInventory[x].GetComponent<Room>().SetCoordinates(new Vector2(pos.x,0));
-                Debug.Log("Room Created");
+                //Debug.Log("Room Created");
             }
         }
     }
