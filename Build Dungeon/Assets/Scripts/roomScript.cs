@@ -9,16 +9,18 @@ public class Room : MonoBehaviour
     private Room[] neighbors = new Room[4];
     private Vector2 coordinates = Vector2.zero;
 
-
     public void Place(Vector2 coordinate)
     {
         this.coordinates = coordinate;
         IsPlaced = true;
 
     }
-   
+    public void SetCoordinates(Vector2 coordinate)
+    {
+        this.coordinates = coordinate;
+    }
 
-    
+
     public void AddRoom(Direction direction, Room newRoom)
     {
         int index = (int)direction;
