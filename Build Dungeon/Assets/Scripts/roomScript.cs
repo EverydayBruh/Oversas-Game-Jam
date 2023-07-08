@@ -48,6 +48,11 @@ public class Room : MonoBehaviour
         return -1;
     }
 
+    public void SetCoordinates(Vector2 coordinate)
+    {
+        this.coordinates = coordinate;
+    }
+
 }
 
 
