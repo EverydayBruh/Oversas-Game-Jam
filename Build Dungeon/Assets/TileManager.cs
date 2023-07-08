@@ -6,7 +6,7 @@ using UnityEngine;
 public class TileManager : MonoBehaviour
 {
     public GameObject tile;
-    private GameObject[,] roomSlots; // Матрица RoomSlot
+    public GameObject[,] roomSlots; // Матрица RoomSlot
 
     public uint width; // Ширина матрицы
     public uint height; // Высота матрицы
@@ -16,27 +16,42 @@ public class TileManager : MonoBehaviour
 
 
     // Инициализация матрицы с пустыми RoomSlot
+    private void Start()
+    {
+        UpdateSlots();
+    }
     public void UpdateSlots()
     {
         ClearRoomSlots();
         tilemap = new GameObject();//Instantiate(new GameObject(), new Vector3(0,0), new Quaternion());
+        tilemap.name = "Tilemap";
+        tilemap.transform.position= new Vector3(distance_multiplier/ 2, distance_multiplier / 2);
+       
         roomSlots = new GameObject[width, height];
-        GameObject temp_tile;
         for (int x = 0; x < width; x++)
         {
             for (int y = 0; y < height; y++)
             {
-                Vector3 pos = new Vector3(x,y) * distance_multiplier;
-                temp_tile = Instantiate(tile, pos, new Quaternion(), tilemap.transform);
-                temp_tile.GetComponent<RoomSlot>().SetCoordinates(new Vector2(x, y));
+                Vector3 pos = tilemap.transform.position + new Vector3(x,y) * distance_multiplier;
+                roomSlots[x, y] = Instantiate(tile, pos, new Quaternion(), tilemap.transform);
+                roomSlots[x, y].GetComponent<RoomSlot>().SetCoordinates(new Vector2(x, y));
                 //temp_tile.transform.parent = tilemap.transform;
             }
         }
     }
 
+    public GameObject GetRoomSlot(Vector2 position)
+    {
+        if(position.x < 0 || position.y < 0) return null;
+        position = position / distance_multiplier;
+        return ObjSlotByCoord((int)position.x / 1,(int)position.y / 1);
+    }
     public GameObject ObjSlotByCoord(int x, int y)
     {
-        if (x >= width || y >= height) return null;
+        //.Debug.Log(x);
+        //Debug.Log(y);
+        if (x >= width || y >= height || x<0 || y<0) return null;
+        //Debug.Log("Coord OK");
         return roomSlots[x, y];
 
     }
@@ -72,16 +87,6 @@ public class TileManager : MonoBehaviour
             GameObject.DestroyImmediate(child.gameObject);
         }
         DestroyImmediate(tilemap);
-        //if (roomSlots == null) return 1;
-
-        //for (int x = 0; x < last_width; x++)
-        //{
-        //    for (int y = 0; y < last_heaight; y++)
-        //    { 
-        //        if(roomSlots[x, y]) roomSlots[x, y].RoomClear();
-        //    }
-        //}
         return 0;
-        //roomSlots = null;
     }
 }

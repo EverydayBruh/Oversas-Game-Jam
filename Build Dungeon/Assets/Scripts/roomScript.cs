@@ -16,13 +16,7 @@ public class Room : MonoBehaviour
         IsPlaced = true;
 
     }
-    public void SetNeighbors(Room top, Room right, Room bottom, Room left)
-    {
-        neighbors[0] = top;
-        neighbors[1] = right;
-        neighbors[2] = bottom;
-        neighbors[3] = left;
-    }
+   
 
     
     public void AddRoom(Direction direction, Room newRoom)
