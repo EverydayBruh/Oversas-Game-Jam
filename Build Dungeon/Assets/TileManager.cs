@@ -33,8 +33,22 @@ public class TileManager : MonoBehaviour
             }
         }
     }
-    
-    
+
+    public GameObject ObjSlotByCoord(int x, int y)
+    {
+        if (x >= width || y >= height) return null;
+        return roomSlots[x, y];
+
+    }
+    public RoomSlot SlotByCoord(int x, int y)
+    {
+        return ObjSlotByCoord(x,y).GetComponent<RoomSlot>();
+    }
+
+    public Room RoomByCoord(int x, int y)
+    {
+        return SlotByCoord(x, y).GetRoom();
+    }
 
     // Метод для получения RoomSlot по координатам
     public GameObject GetRoomSlot(int x, int y)

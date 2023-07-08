@@ -12,6 +12,8 @@ public class Room : MonoBehaviour
 
     public void Place(Vector2 coordinate)
     {
+        this.coordinates = coordinate;
+        IsPlaced = true;
 
     }
     public void SetNeighbors(Room top, Room right, Room bottom, Room left)
@@ -22,12 +24,7 @@ public class Room : MonoBehaviour
         neighbors[3] = left;
     }
 
-    public void Attach(Vector2 coordinates)
-    {
-        this.coordinates = coordinates;
-        IsPlaced= true;
-    }
-
+    
     public void AddRoom(Direction direction, Room newRoom)
     {
         int index = (int)direction;
@@ -38,7 +35,27 @@ public class Room : MonoBehaviour
             newRoom.neighbors[(index + 2) % 4] = this;
         }
     }
+
+    public Room GetNeighbor(Vector2 direction)
+    {
+        return neighbors[DirectionToIndex(direction)];
+    }
+    public bool IsConnected(Vector2 direction)
+    {
+        if (neighbors[DirectionToIndex(direction)] == null) return false;
+        return true;
+    }
+    public int DirectionToIndex(Vector2 direction)
+    {
+        if (direction == Vector2.up) return 0;
+        if (direction == Vector2.left) return 1;
+        if (direction == Vector2.down) return 2;
+        if (direction == Vector2.right) return 3;
+        return -1;
+    }
+
 }
+
 
 // ѕеречисление дл€ представлени€ направлений
 public enum Direction

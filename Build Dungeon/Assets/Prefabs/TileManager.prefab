@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2451926603339000712}
   - component: {fileID: 2240710841837922193}
   m_Layer: 0
-  m_Name: LiteManager
+  m_Name: TileManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

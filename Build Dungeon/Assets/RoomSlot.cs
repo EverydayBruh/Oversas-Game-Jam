@@ -27,6 +27,12 @@ public class RoomSlot : MonoBehaviour
         room = newroom;
     }
 
+    public Room GetRoom()
+    {
+        if(room == null) return null;
+        return room.GetComponent<Room>();
+    } 
+
     public void SetCoordinates(Vector2 coordinates)
     {
         this.coordinates= coordinates;
