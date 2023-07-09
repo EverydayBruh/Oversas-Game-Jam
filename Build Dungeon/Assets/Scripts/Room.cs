@@ -25,7 +25,7 @@ public class Room : MonoBehaviour
 
     public Vector3 KnightPos()
     {
-        return gameObject.transform.position+Vector3.back;
+        return gameObject.transform.position+Vector3.back * 5;
     }
 
     /// <summary>
@@ -86,7 +86,7 @@ public class Room : MonoBehaviour
         }
         UpdateDoors();
     }
-
+    
     public int UpdateConnection(Vector2 direction)
     {
         Vector2 coord = this.coordinates + direction;
