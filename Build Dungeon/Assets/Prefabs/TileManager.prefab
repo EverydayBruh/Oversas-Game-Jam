@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2240710841837922193}
   m_Layer: 0
   m_Name: TileManager
-  m_TagString: Untagged
+  m_TagString: TileManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tile: {fileID: 8478128512776476885, guid: 5536a51455a78b34c8f7f5bed4873d3d, type: 3}
   width: 3
-  height: 4
+  height: 3
   distance_multiplier: 3
 --- !u!114 &2240710841837922193
 MonoBehaviour:
