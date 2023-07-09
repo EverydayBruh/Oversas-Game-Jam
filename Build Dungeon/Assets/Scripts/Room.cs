@@ -23,6 +23,34 @@ public class Room : MonoBehaviour
         TileManager = GameObject.FindGameObjectWithTag("TileManager").GetComponent<TileManager>();
     }
 
+    public Vector3 KnightPos()
+    {
+        return gameObject.transform.position+Vector3.back;
+    }
+
+    public Vector2[] GetDirectons()
+    {
+        int k = 0;
+        for (int i = 0; i<4;i++)
+        {
+            if (doors[i] && (neighbors[i] == null))
+            {
+                k++;
+            }
+        }
+        Vector2[] array = new Vector2[k];
+        k = 0;
+        for (int i = 0; i < 4; i++)
+        {
+            if (doors[i] && (neighbors[i] == null))
+            {
+                array[k] = IndexToDirection(i);
+                k++;
+            }
+        }
+        return array;
+    }
+
     public void UpdateDoors()
     {
         for(int i = 0; i<4; i++)
@@ -38,8 +66,10 @@ public class Room : MonoBehaviour
         IsPlaced = true;
         this.transform.position = position;
         UpdateConnections();
-       //this.GetComponent<DragScript>().enabled= false;
-        this.name = coordinates.x.ToString() + "; " + coordinates.y.ToString();
+        //this.GetComponent<DragScript>().enabled= false;
+        if (this.name.StartsWith("Room")){
+            this.name = coordinates.x.ToString() + " " + coordinates.y.ToString()+ "Room";
+        }
     }
 
     public void UpdateConnections() 
@@ -54,10 +84,15 @@ public class Room : MonoBehaviour
     public int UpdateConnection(Vector2 direction)
     {
         Vector2 coord = this.coordinates + direction;
+        if (!TileManager.CheckCoordinates((int)coord.x, (int)coord.y))
+        {
+            doors[DirectionToIndex(direction)] = false;
+            return -1;
+        }
         Room room = TileManager.RoomByCoord((int)coord.x, (int)coord.y);
         //Debug.Log(room);
         if(room== null) return-1;
-        Debug.Log(room.name);
+        //Debug.Log(room.name);
         if (doors[DirectionToIndex(direction)] || room.doors[DirectionToIndex(-direction)])
         {
             doors[DirectionToIndex(direction)] = true;
@@ -68,6 +103,11 @@ public class Room : MonoBehaviour
         }
 
         return 0;
+    }
+
+    public Room GetRoomInDirection(Vector2 direction)
+    {
+        return neighbors[DirectionToIndex(direction)];
     }
     public void Randomise()
     {

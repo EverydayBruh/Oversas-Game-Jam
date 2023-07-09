@@ -33,7 +33,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4836603315077964902
 SpriteRenderer:
@@ -101,6 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnRoom: {fileID: 0}
   curRoom: {fileID: 0}
+  rooms: {fileID: 0}
 --- !u!114 &3992514907311914967
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -113,10 +114,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc28fe39e2195c54b812a78cdddbad54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 10
+  Speed: 2
   targetPoint: {x: 0, y: 0, z: 0}
   isWalking: 0
-  animator: {fileID: 0}
+  animator: {fileID: 8335256534868264248}
 --- !u!95 &8335256534868264248
 Animator:
   serializedVersion: 5

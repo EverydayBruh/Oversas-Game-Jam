@@ -28,7 +28,7 @@ public class KnightScript : MonoBehaviour
             animator.SetBool("isStaying", false);
             animator.SetFloat("HorizontalMovement", transform.position.x - targetPoint.x); // ¬право или влево
             animator.SetFloat("VerticalMovement", Mathf.Abs(transform.position.y - targetPoint.y)); // ¬верх или вниз
-            transform.position = Vector2.MoveTowards(transform.position, targetPoint, Speed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, targetPoint, Speed * Time.deltaTime);
         }
         
         if(transform.position == targetPoint)
@@ -37,7 +37,10 @@ public class KnightScript : MonoBehaviour
             isWalking = false;
         }
     }
-    
+   public void MoveToRoom(Room room)
+    {
+        MoveToPoint(room.KnightPos());
+    }
     
     public void MoveToPoint(Vector3 targetPoint)
     {
