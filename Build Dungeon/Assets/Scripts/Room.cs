@@ -11,6 +11,9 @@ public class Room : MonoBehaviour
     public Room[] neighbors = new Room[4];
     private Vector2 coordinates = Vector2.zero;
     private TileManager TileManager;
+    public GameObject enemy;
+    public EnemyScript enemyScript;
+    private RoomInventory roomInventory;
 
 
     private void OnValidate()
@@ -21,11 +24,22 @@ public class Room : MonoBehaviour
     private void Awake()
     {
         TileManager = GameObject.FindGameObjectWithTag("TileManager").GetComponent<TileManager>();
+        roomInventory = GameObject.FindGameObjectWithTag("RoomInventory").GetComponent<RoomInventory>();
     }
-
+    /// <summary>
+    /// Получем координаты, в которые может передвигаться рыцарь
+    /// </summary>
     public Vector3 KnightPos()
     {
-        return gameObject.transform.position+Vector3.back * 5;
+        if (enemy != null)
+        {
+            enemyScript = enemy.GetComponent<MonoBehaviour>() as EnemyScript;
+            return gameObject.transform.position + enemyScript.GetKnightPosition() * TileManager.distance_multiplier + Vector3.back * 5;
+        }
+        else
+        {
+            return gameObject.transform.position + Vector3.back * 5;
+        }
     }
 
     /// <summary>
@@ -73,6 +87,7 @@ public class Room : MonoBehaviour
         if (this.name.StartsWith("Room")){
             this.name = coordinates.x.ToString() + " " + coordinates.y.ToString()+ "Room";
         }
+        roomInventory.InventoryRemoveRoom(this);
     }
 
     /// <summary>
