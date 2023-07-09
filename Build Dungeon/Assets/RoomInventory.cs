@@ -13,7 +13,7 @@ public class RoomInventory : MonoBehaviour
     public Room room;
     public int RoomInventoryCapacity = 7;
     public uint AmountForNewRoom = 2;
-    private int currentRoomAmount = 0;
+    public int currentRoomAmount = 0;
     public float distance_multiplier = 3f;
     public float y_inventoryOffset = 3;
 
