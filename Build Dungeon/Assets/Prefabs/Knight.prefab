@@ -10,8 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8221188472663257052}
   - component: {fileID: 4836603315077964902}
+  - component: {fileID: 7319365903060253552}
   - component: {fileID: 3992514907311914967}
-  - component: {fileID: 5979485601777212713}
+  - component: {fileID: 8335256534868264248}
   m_Layer: 0
   m_Name: Knight
   m_TagString: Untagged
@@ -32,7 +33,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4836603315077964902
 SpriteRenderer:
@@ -86,6 +87,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &7319365903060253552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2021819744321412718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 469ddc99b1fb70344847d12438694d89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnRoom: {fileID: 0}
+  curRoom: {fileID: 0}
+  rooms: {fileID: 0}
 --- !u!114 &3992514907311914967
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -98,11 +114,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc28fe39e2195c54b812a78cdddbad54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 10
+  Speed: 2
   targetPoint: {x: 0, y: 0, z: 0}
   isWalking: 0
-  animator: {fileID: 5979485601777212713}
---- !u!95 &5979485601777212713
+  animator: {fileID: 8335256534868264248}
+--- !u!95 &8335256534868264248
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0

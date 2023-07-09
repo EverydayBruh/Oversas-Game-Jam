@@ -21,10 +21,13 @@ public class Wall : MonoBehaviour
 
     public void UpdateSprite()
     {
-        if (haveDoor)
+        if (isExit) 
+        { 
+            spriteRenderer.sprite = exit; 
+        }
+        else if (haveDoor)
         {
-            if(isExit) spriteRenderer.sprite = exit;
-            else spriteRenderer.sprite = door;
+            spriteRenderer.sprite = door;
         }
         else
         {

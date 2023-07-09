@@ -28,7 +28,7 @@ public class RoomInventory : MonoBehaviour
                 RoomsInventory[x] = Instantiate(room, pos, new Quaternion(), this.transform);
                 //RoomsInventory[x].GetComponent<Room>().SetCoordinates(new Vector2(pos.x,0));
                 RoomsInventory[x].GetComponent<Room>().Randomise();
-                Debug.Log("Room Created");
+                //Debug.Log("Room Created");
             }
         }
     }

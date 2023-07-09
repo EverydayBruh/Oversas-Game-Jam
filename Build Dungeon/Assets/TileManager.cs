@@ -52,7 +52,7 @@ public class TileManager : MonoBehaviour
             {
                 roomSlots[x, y] = GameObject.Find(x.ToString() + " " + y.ToString());
                 roomSlots[x, y].GetComponent<RoomSlot>().SetCoordinates(new Vector2(x, y));
-                Debug.Log(roomSlots[x, y].name);
+                //Debug.Log(roomSlots[x, y].name);
             }
         }
     }
@@ -108,7 +108,7 @@ public class TileManager : MonoBehaviour
         DestroyImmediate(tilemap);
         return 0;
     }
-    private bool CheckCoordinates(int x, int y)
+    public bool CheckCoordinates(int x, int y) //false если неправильные координаты
     {
         if (x >= width || y >= height || x < 0 || y < 0) return false;
         return true;
