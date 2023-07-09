@@ -4,14 +4,37 @@ using UnityEngine;
 
 public class EnemyScript : MonoBehaviour
 {
-    public float enemyOffsetPosition;
-    public TileManager tileManager;
-
-    // <summary>
-    // Ало
-    // </summary>
-    public void EnemySetPosition(Room room)
+    public Vector2 enemyOffsetPosition;
+    public float health;
+    public float strenght;
+    public Vector2 enemyPosition;
+    public Vector2 knightPosition;
+    /// <summary>
+    /// Определяет координаты врага относительно координат комнаты
+    /// </summary>
+    public Vector2 EnemySetPosition()
     {
-        Vector3 pos = room.transform.position +  new Vector3(enemyOffsetPosition * tileManager.distance_multiplier, room.transform.position.y, -1);
+        enemyPosition = new Vector2(enemyOffsetPosition.x, enemyOffsetPosition.y);
+        return enemyPosition;
     }
+
+    /// <summary>
+    /// Определяет координаты врага относительно координат комнаты
+    /// </summary>
+    public Vector3 GetKnightPosition()
+    {
+        knightPosition = new Vector2(enemyOffsetPosition.x, enemyOffsetPosition.y) * -1;
+        return knightPosition;
+    }
+
+    public virtual void Attack()
+    {
+        // Реализация атаки общая для всех врагов
+    }
+
+    public virtual void TakeDamage(float damage)
+    {
+        // Реализация получения урона общая для всех врагов
+    }
+
 }
