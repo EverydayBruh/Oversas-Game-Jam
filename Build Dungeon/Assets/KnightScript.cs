@@ -37,11 +37,13 @@ public class KnightScript : MonoBehaviour
             isWalking = false;
         }
     }
+    //»дти в комнату
    public void MoveToRoom(Room room)
     {
         MoveToPoint(room.KnightPos());
     }
     
+    //»дти в точку
     public void MoveToPoint(Vector3 targetPoint)
     {
         this.targetPoint = targetPoint;

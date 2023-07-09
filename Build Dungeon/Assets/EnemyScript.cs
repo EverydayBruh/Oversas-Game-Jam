@@ -7,16 +7,24 @@ public class EnemyScript : MonoBehaviour
     public Vector2 enemyOffsetPosition;
     public float health;
     public float strenght;
-    public TileManager tileManager;
-    private Vector3 enemyPosition;
+    public Vector2 enemyPosition;
+    public Vector2 knightPosition;
+    /// <summary>
+    /// Определяет координаты врага относительно координат комнаты
+    /// </summary>
+    public Vector2 EnemySetPosition()
+    {
+        enemyPosition = new Vector2(enemyOffsetPosition.x, enemyOffsetPosition.y);
+        return enemyPosition;
+    }
 
     /// <summary>
     /// Определяет координаты врага относительно координат комнаты
     /// </summary>
-    public Vector3 EnemySetPosition(Room room)
+    public Vector3 GetKnightPosition()
     {
-        tileManager = GameObject.FindGameObjectWithTag("TileManager").GetComponent<TileManager>();
-        return enemyPosition = room.transform.position + new Vector3(enemyOffsetPosition.x, enemyOffsetPosition.y,0) * tileManager.distance_multiplier + Vector3.back;
+        knightPosition = new Vector2(enemyOffsetPosition.x, enemyOffsetPosition.y) * -1;
+        return knightPosition;
     }
 
     public virtual void Attack()

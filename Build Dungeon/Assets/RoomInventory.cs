@@ -8,37 +8,62 @@ using UnityEngine.WSA;
 public class RoomInventory : MonoBehaviour
 {
     public TileManager tileManager;
-    private Room[] RoomsInventory;
+    private List<Room> RoomsInventory;
     public EnemeisSpawner enemeisSpawner;
     public Room room;
-    public uint RoomInventoryCapacity = 7;
+    public int RoomInventoryCapacity = 7;
+    public uint AmountForNewRoom = 2;
+    private int currentRoomAmount = 0;
     public float distance_multiplier = 3f;
-    public float y_inventoryOffset;
+    public float y_inventoryOffset = 3;
 
     void Start()
     {
-        UpdateRoomInventory();
+        CreateRoomInventory();
         CenterRoomInventory();
     }
-    public void UpdateRoomInventory()
+    public void CreateRoomInventory()
     {
-        RoomsInventory = new Room[RoomInventoryCapacity];
+        RoomsInventory = new List<Room>(RoomInventoryCapacity);
 
         for (int x = 0; x < RoomInventoryCapacity; x++)
         {
-            if (RoomsInventory[x] == null)
-            {               
-                Vector3 pos = transform.position + new Vector3(x - (RoomInventoryCapacity/2), 0) * distance_multiplier;
-                RoomsInventory[x] = Instantiate(room, pos, new Quaternion(), this.transform);
-                //RoomsInventory[x].GetComponent<Room>().SetCoordinates(new Vector2(pos.x,0));
-                RoomsInventory[x].GetComponent<Room>().Randomise();
-                if (Random.value > 0.5f)
-                {
-                    enemeisSpawner.SpawnRandomEnemy(RoomsInventory[x]);
-                }
-                //Debug.Log("Room Created");
-            }
+            CreateRoom();
         }
+    }
+
+    /// <summary>
+    /// Создает новую комнату в инвенторе.
+    /// </summary>
+    public void CreateRoom()
+    {
+        Room temp = Instantiate(room, this.transform);
+        temp.GetComponent<Room>().Randomise();
+        if (Random.value > 0.5f)
+        {
+            temp.enemy = enemeisSpawner.SpawnRandomEnemy(temp);
+        }
+        RoomsInventory.Add(temp);
+        currentRoomAmount += 1;
+    }
+    /// <summary>
+    /// Уменьшает счётчик комнат, находящихся в инвенторе, и создает новые, если комнат недостаточно.
+    /// </summary>
+    public void InventoryRemoveRoom(Room room)
+    {
+        RoomsInventory.Remove(room);
+        currentRoomAmount -= 1;
+        if (currentRoomAmount <= AmountForNewRoom)
+        {
+            CreateRoom();
+        }
+    }
+    /// <summary>
+    /// Обновляет инвентарь после добавления или удаления из него комнат.
+    /// </summary>
+    private void UpdateRoomInventory()
+    {
+        
     }
 
     public void CenterRoomInventory()
