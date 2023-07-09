@@ -6,8 +6,10 @@ using UnityEngine;
 public class Wall : MonoBehaviour
 {
     public bool haveDoor = false;
+    public bool isExit = false;
     public Sprite no_door;
     public Sprite door;
+    public Sprite exit;
 
     public SpriteRenderer spriteRenderer;
 
@@ -21,7 +23,8 @@ public class Wall : MonoBehaviour
     {
         if (haveDoor)
         {
-            spriteRenderer.sprite = door;
+            if(isExit) spriteRenderer.sprite = exit;
+            else spriteRenderer.sprite = door;
         }
         else
         {

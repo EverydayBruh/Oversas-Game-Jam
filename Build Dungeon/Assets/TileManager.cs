@@ -18,13 +18,14 @@ public class TileManager : MonoBehaviour
     // Инициализация матрицы с пустыми RoomSlot
     private void Start()
     {
-        UpdateSlots();
+        FindSlots();
     }
+    [ContextMenu("Update Slots")]
     public void UpdateSlots()
     {
         ClearRoomSlots();
         tilemap = new GameObject();//Instantiate(new GameObject(), new Vector3(0,0), new Quaternion());
-        tilemap.name = "Tilemap";
+        tilemap.name = "TileMap";
         tilemap.transform.position= new Vector3(distance_multiplier/ 2, distance_multiplier / 2);
        
         roomSlots = new GameObject[width, height];
@@ -35,7 +36,23 @@ public class TileManager : MonoBehaviour
                 Vector3 pos = tilemap.transform.position + new Vector3(x,y) * distance_multiplier;
                 roomSlots[x, y] = Instantiate(tile, pos, new Quaternion(), tilemap.transform);
                 roomSlots[x, y].GetComponent<RoomSlot>().SetCoordinates(new Vector2(x, y));
+                roomSlots[x,y].name = x.ToString()+" "+ y.ToString();
                 //temp_tile.transform.parent = tilemap.transform;
+            }
+        }
+    }
+
+    public void FindSlots()
+    {
+        tilemap = GameObject.Find("TileMap");
+        roomSlots = new GameObject[width, height];
+        for (int x = 0; x < width; x++)
+        {
+            for (int y = 0; y < height; y++)
+            {
+                roomSlots[x, y] = GameObject.Find(x.ToString() + " " + y.ToString());
+                roomSlots[x, y].GetComponent<RoomSlot>().SetCoordinates(new Vector2(x, y));
+                Debug.Log(roomSlots[x, y].name);
             }
         }
     }

@@ -8,7 +8,7 @@ public class Room : MonoBehaviour
     public bool IsPlaced = false;
     public bool[] doors = new bool[4];
     public GameObject[] walls;
-    private Room[] neighbors = new Room[4];
+    public Room[] neighbors = new Room[4];
     private Vector2 coordinates = Vector2.zero;
     private TileManager TileManager;
 
@@ -62,6 +62,8 @@ public class Room : MonoBehaviour
         {
             doors[DirectionToIndex(direction)] = true;
             room.doors[DirectionToIndex(-direction)] = true;
+            neighbors[DirectionToIndex(direction)] = room;
+            room.neighbors[DirectionToIndex(-direction)] = this;
             room.UpdateDoors();
         }
 
