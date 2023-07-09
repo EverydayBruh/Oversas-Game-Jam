@@ -8,7 +8,7 @@ public class RoomSlot : MonoBehaviour
     public bool IsLocked = false;
     private GameObject reference;
     public GameObject room = null;
-    private Vector2 coordinates= Vector2.zero;
+    public Vector2 coordinates= Vector2.zero;
     
     
     //public RoomSlot(Vector2 coordinates, GameObject preafab, GameObject parent)
@@ -21,12 +21,27 @@ public class RoomSlot : MonoBehaviour
     //    reference.transform.parent = parent.transform;
     //}
 
-    public void AddRoom(GameObject newroom)
+    public int AddRoom(GameObject newroom)
     {
+        if(!IsEmpty) return 1;
         IsEmpty= false;
         room = newroom;
+        room.GetComponent<Room>().Place(coordinates, this.transform.position);
+        return 0;
     }
 
+    [ContextMenu("Update Room")]
+    public int UpdateRoom()
+    {
+        if (room == null)
+        {
+            IsEmpty = true;
+            return -1;
+        }
+        IsEmpty = false;
+        room.GetComponent<Room>().Place(coordinates, this.transform.position);
+        return 0;
+    }
     public Room GetRoom()
     {
         if(room == null) return null;
