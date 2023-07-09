@@ -28,6 +28,9 @@ public class Room : MonoBehaviour
         return gameObject.transform.position+Vector3.back;
     }
 
+    /// <summary>
+    /// Получем направления, в которых может двигаться рыцарь
+    /// </summary>
     public Vector2[] GetDirectons()
     {
         int k = 0;
@@ -72,6 +75,9 @@ public class Room : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Обновляяем двери и соседей
+    /// </summary>
     public void UpdateConnections() 
     {
         for(int i = 0; i<4; i++)
@@ -105,6 +111,7 @@ public class Room : MonoBehaviour
         return 0;
     }
 
+    
     public Room GetRoomInDirection(Vector2 direction)
     {
         return neighbors[DirectionToIndex(direction)];

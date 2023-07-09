@@ -108,6 +108,10 @@ public class TileManager : MonoBehaviour
         DestroyImmediate(tilemap);
         return 0;
     }
+
+    /// <summary>
+    /// Возвращает False, если координаты выходят за границу двумерного массива слотов
+    /// </summary>
     public bool CheckCoordinates(int x, int y) //false если неправильные координаты
     {
         if (x >= width || y >= height || x < 0 || y < 0) return false;

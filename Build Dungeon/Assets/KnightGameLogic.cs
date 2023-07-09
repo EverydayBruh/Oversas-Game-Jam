@@ -21,8 +21,10 @@ public class KnightGameLogic : MonoBehaviour
         ChangeRoom(spawnRoom);
     }
 
-   
-    public void EnterRoom() // Тут мы обрабатываеми поведение в текущей комнате
+    /// <summary>
+    /// Обрабатываеми поведение рыцаря в текущей комнате
+    /// </summary>
+    public void EnterRoom() 
     {
         Debug.Log("EnterRoom");
         StartCoroutine(StartWalkinInDirection(chooseDirection()));
