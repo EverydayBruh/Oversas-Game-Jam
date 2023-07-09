@@ -9,6 +9,7 @@ public class RoomInventory : MonoBehaviour
 {
     public TileManager tileManager;
     private Room[] RoomsInventory;
+    public EnemeisSpawner enemeisSpawner;
     public Room room;
     public uint RoomInventoryCapacity = 7;
     public float distance_multiplier = 3f;
@@ -31,6 +32,10 @@ public class RoomInventory : MonoBehaviour
                 RoomsInventory[x] = Instantiate(room, pos, new Quaternion(), this.transform);
                 //RoomsInventory[x].GetComponent<Room>().SetCoordinates(new Vector2(pos.x,0));
                 RoomsInventory[x].GetComponent<Room>().Randomise();
+                if (Random.value > 0.5f)
+                {
+                    enemeisSpawner.SpawnRandomEnemy(RoomsInventory[x]);
+                }
                 //Debug.Log("Room Created");
             }
         }
