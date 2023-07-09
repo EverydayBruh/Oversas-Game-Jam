@@ -252,7 +252,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9a0215714381c6148bc0acee58588405, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier:
   tileManager: {fileID: 449147212}
   enemeisSpawner: {fileID: 1090510010}
   room: {fileID: 6198702391173665610, guid: 1496c749379ee5c43bc4e7613a6a2d93, type: 3}
@@ -1564,7 +1564,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 95318530469830d498f94225a735b306, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier:
 --- !u!1001 &4482190184532295015
 PrefabInstance:
   m_ObjectHideFlags: 0
