@@ -7,14 +7,17 @@ using UnityEngine.WSA;
 
 public class RoomInventory : MonoBehaviour
 {
+    public TileManager tileManager;
     private Room[] RoomsInventory;
     public Room room;
-    public int RoomInventoryCapacity = 7;
+    public uint RoomInventoryCapacity = 7;
     public float distance_multiplier = 3f;
+    public float y_inventoryOffset;
 
     void Start()
     {
         UpdateRoomInventory();
+        CenterRoomInventory();
     }
     public void UpdateRoomInventory()
     {
@@ -33,4 +36,8 @@ public class RoomInventory : MonoBehaviour
         }
     }
 
+    public void CenterRoomInventory()
+    {
+        transform.position = new Vector3((tileManager.width * tileManager.distance_multiplier)/2, -3 - (y_inventoryOffset/2),0);
+    }
 }
