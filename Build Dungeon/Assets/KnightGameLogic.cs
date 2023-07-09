@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,8 +7,9 @@ public class KnightGameLogic : MonoBehaviour
     public Room spawnRoom;
     public Room curRoom;
     private KnightScript knight;
-    public GameObject rooms;
+    private List<Room> visitedRooms = new List<Room>();
     private TileManager tileManager;
+    private RoomPathFind roomPathFind = new RoomPathFind();
 
     private void Awake()
     {
@@ -26,12 +26,64 @@ public class KnightGameLogic : MonoBehaviour
     /// </summary>
     public void EnterRoom() 
     {
+
+        visitedRooms.Add(curRoom);
         Debug.Log("EnterRoom");
-        StartCoroutine(StartWalkinInDirection(chooseDirection()));
-        
+        if (curRoom.GetDirectons().Length > 0)
+        {
+            StartCoroutine(StartWalkinInDirection(chooseDirection()));
+        } else
+        {
+            Room room = FindInterestingRoom();
+            if (room == null) 
+            { 
+                Destroy(gameObject);
+                Debug.Log("DIE!!");
+            }
+            StartCoroutine(StartWalkinToRoom(room));
+        }
 
     }
 
+    private IEnumerator StartWalkinToRoom(Room room)
+    {
+        Debug.Log("StartWalkinToRoom");
+        Room[] path = RoomPathFind.FindWay(curRoom, room);
+        //RoomPathFind.PrintPath(path);
+        int i = 0;
+        while(curRoom != room)
+        {
+            knight.MoveToRoom(path[i]);
+            while (knight.isWalking)
+            {
+                yield return null;
+            }
+            curRoom = path[i];
+            i++;
+        }
+        EnterRoom();
+    }
+
+
+
+    public Room FindInterestingRoom()
+    {
+        Debug.Log("FindInterestingRoom");
+        List<Room> reacheble = RoomPathFind.HasWay(curRoom);
+        //RoomPathFind.PrintPath(reacheble);
+        List<Room> interestingRooms = new List<Room>();
+
+        foreach (Room room in reacheble)
+        {
+            if (IsInteresting(room))
+            {
+                interestingRooms.Add(room);
+            }
+        }
+       //RoomPathFind.PrintPath(interestingRooms);
+        if (interestingRooms.Count == 0) { return null; }
+        return interestingRooms[Random.Range(0, interestingRooms.Count)];
+    }
     private IEnumerator StartWalkinInDirection(Vector3 direction)
     {
         Debug.Log("StartWalkinInDirection" + direction.ToString());
@@ -59,6 +111,9 @@ public class KnightGameLogic : MonoBehaviour
             yield return null;
         }
         curRoom = room;
+
+        Room[] path = RoomPathFind.FindWay(curRoom, spawnRoom);
+        //RoomPathFind.PrintPath(path);
         yield return new WaitForSeconds(0.6f);
         EnterRoom();
     }
@@ -73,4 +128,16 @@ public class KnightGameLogic : MonoBehaviour
         
         return randomDir;
     }
+
+    public bool IsInteresting(Room room)
+    {
+        if(!HasVisited(room) || RoomPathFind.Freedors(room)) return true;
+        return false;
+    }
+
+    public bool HasVisited(Room room)
+    {
+        return visitedRooms.Contains(room);
+    }
+
 }
