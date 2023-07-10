@@ -13,8 +13,7 @@ public class DragScript : MonoBehaviour
 
     void Start()
     {
-        TileManager = GameObject.FindGameObjectWithTag("TileManager").GetComponent<TileManager>();
-        primalPos = transform.position;
+        TileManager = GameObject.FindGameObjectWithTag("TileManager").GetComponent<TileManager>();       
     }
 
     void Update()
@@ -28,6 +27,7 @@ public class DragScript : MonoBehaviour
 
     private void OnMouseDown()
     {
+        primalPos = transform.position;
         offset = transform.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);   
         if(canDrag) dragging = true;
     }

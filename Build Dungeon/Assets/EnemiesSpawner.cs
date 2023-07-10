@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemeisSpawner : MonoBehaviour
+public class EnemiesSpawner : MonoBehaviour
 {
     public List<GameObject> enemyPrefabs; // Список префабов наследников Enemy
     public TileManager tileManager;
