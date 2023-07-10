@@ -9,7 +9,19 @@ public class EnemyScript : MonoBehaviour
     public float strenght;
     public Vector2 enemyPosition;
     public Vector2 knightPosition;
+    public bool isAttacking;
 
+    public float Speed = 10f;
+    private Vector3 velocity;
+
+
+    private void Update()
+    {
+        if (isAttacking)
+        {
+            Attack();
+        }
+    }
     /// <summary>
     /// Определяет координаты врага относительно координат комнаты
     /// </summary>
@@ -30,7 +42,9 @@ public class EnemyScript : MonoBehaviour
 
     public virtual void Attack()
     {
-        // Реализация атаки общая для всех врагов
+
+        transform.position = Vector3.SmoothDamp(transform.position, knightPosition + Vector2.right, ref velocity, Speed);
+
     }
 
     public virtual void TakeDamage(float damage)
