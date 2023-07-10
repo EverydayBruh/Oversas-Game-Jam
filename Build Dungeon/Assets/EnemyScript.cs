@@ -9,6 +9,7 @@ public class EnemyScript : MonoBehaviour
     public float strenght;
     public Vector2 enemyPosition;
     public Vector2 knightPosition;
+
     /// <summary>
     /// Определяет координаты врага относительно координат комнаты
     /// </summary>
