@@ -74,7 +74,7 @@ public class RoomInventory : MonoBehaviour
         {
             Vector3 new_pos = transform.position + new Vector3((x - currentRoomAmount / 2) * tileManager.distance_multiplier - tileManager.distance_multiplier / 2 * (currentRoomAmount % 2 - 1), 0, 0);
             RoomsInventory[x].transform.position = Vector3.Lerp(RoomsInventory[x].transform.position, new_pos, smoothTime * Time.deltaTime);
-        }
+        }      
     }
 
     public void CenterRoomInventory()
