@@ -256,7 +256,7 @@ MonoBehaviour:
   tileManager: {fileID: 449147212}
   enemiesSpawner: {fileID: 1090510010}
   room: {fileID: 6198702391173665610, guid: 1496c749379ee5c43bc4e7613a6a2d93, type: 3}
-  RoomInventoryCapacity: 7
+  RoomInventoryCapacity: 2
   AmountForNewRoom: 3
   y_inventoryOffset: 3
   smoothTime: 10
