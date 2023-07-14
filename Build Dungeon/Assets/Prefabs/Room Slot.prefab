@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2986629975590116659}
   - component: {fileID: 6407894872208045332}
   - component: {fileID: 7980101294998098934}
+  - component: {fileID: 3457677285990354005}
   m_Layer: 0
   m_Name: Room Slot
   m_TagString: Untagged
@@ -27,11 +28,11 @@ Transform:
   m_GameObject: {fileID: 8478128512776476885}
   m_LocalRotation: {x: -0, y: -0, z: 0.00011900067, w: -1}
   m_LocalPosition: {x: 4, y: 7, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -0.014}
 --- !u!212 &6407894872208045332
 SpriteRenderer:
@@ -74,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 97c228eda70c6f64eb57c7b28668127e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: da208990df006654ca2e52dd5c0a78af, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -99,4 +100,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsEmpty: 1
   IsLocked: 0
-  Room: {fileID: 0}
+  room: {fileID: 0}
+  coordinates: {x: 0, y: 0}
+--- !u!95 &3457677285990354005
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8478128512776476885}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: cd0de89b40d939b4e9937addc139d51c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
