@@ -9,6 +9,7 @@ public class RoomSlot : MonoBehaviour
     private GameObject reference;
     public GameObject room = null;
     public Vector2 coordinates= Vector2.zero;
+    private Animator anim;
 
 
     //public RoomSlot(Vector2 coordinates, GameObject preafab, GameObject parent)
@@ -22,6 +23,7 @@ public class RoomSlot : MonoBehaviour
     //}
     private void Start()
     {
+        anim = GetComponent<Animator>();
         UpdateRoom();
     }
 
@@ -31,6 +33,7 @@ public class RoomSlot : MonoBehaviour
         IsEmpty= false;
         room = newroom;
         room.GetComponent<Room>().Place(coordinates, this.transform.position);
+        Lock();
         return 0;
     }
 
@@ -64,12 +67,15 @@ public class RoomSlot : MonoBehaviour
 
     public void Lock()
     {
+        anim.SetBool("Play", false);
+        anim.enabled = false;
         IsLocked = true;
     }
 
     public void Unlock()
     {
         IsLocked = false;
+        anim.SetBool("Play", true);
     }
     ~RoomSlot()
     {
