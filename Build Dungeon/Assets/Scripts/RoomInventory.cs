@@ -79,6 +79,6 @@ public class RoomInventory : MonoBehaviour
 
     public void CenterRoomInventory()
     {
-        transform.position = new Vector3((tileManager.width * tileManager.distance_multiplier)/2, -3 - (y_inventoryOffset/2),0);
+        transform.position = new Vector3((tileManager.width * tileManager.distance_multiplier)/2, -3 - (y_inventoryOffset/2),-6);
     }
 }

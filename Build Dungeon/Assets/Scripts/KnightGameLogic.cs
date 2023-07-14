@@ -93,8 +93,7 @@ public class KnightGameLogic : MonoBehaviour
         Debug.Log("StartWalkinInDirection" + direction.ToString());
         Vector3 pos = gameObject.transform.position + direction * tileManager.distance_multiplier * 0.4f;
         knight.MoveToPoint(pos);
-        //curRoom.GetSlotInDirection(direction).Unlock()
-        // cur
+        curRoom.GetSlotInDirection(direction).Unlock();
         while (curRoom.GetRoomInDirection(direction) == null)
         {
             yield return null;
