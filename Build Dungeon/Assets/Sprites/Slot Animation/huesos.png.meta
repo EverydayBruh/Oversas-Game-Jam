@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 90c0f25762609d84cbbb15e7c770bce8
+guid: 81d7cca7b33ef7d41a34fac299ec5dc0
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,13 +123,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: knight death_0
+      name: huesos_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
-        height: 32
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,41 +137,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 40e381b55e27f3d4a8db09f4480e5080
-      internalID: -223914577
+      spriteID: 21e4b689483c9204085cfdf44776bb81
+      internalID: 478648426
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: knight death_1
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 27c8356f36c17e74e886295258914c75
-      internalID: 1676857306
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: knight death_2
+      name: huesos_1
       rect:
         serializedVersion: 2
         x: 64
         y: 0
-        width: 32
-        height: 32
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -179,41 +158,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a4e16560194660c40b27ff28ba7e0ed4
-      internalID: -841123984
+      spriteID: 9dd5c7b426b2778449e14a3933865b94
+      internalID: 44883280
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: knight death_3
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b3d81abe38b5cfc4d9515f96e0b34ccb
-      internalID: -1692278125
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: knight death_4
+      name: huesos_2
       rect:
         serializedVersion: 2
         x: 128
         y: 0
-        width: 32
-        height: 32
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -221,41 +179,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a74933d206081054688e72f13a78dac3
-      internalID: 694507807
+      spriteID: 7de948c178df35f49ac52c6e69384c18
+      internalID: -1184230073
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: knight death_5
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1d26af262b6bc624b881ac64d8b6d167
-      internalID: 1731551557
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: knight death_6
+      name: huesos_3
       rect:
         serializedVersion: 2
         x: 192
         y: 0
-        width: 32
-        height: 32
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -263,41 +200,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e0d2e083e632d624c8ea6c90d84a489b
-      internalID: 1769933929
+      spriteID: 7f04f5bf1cb628c4d9b5e7b89a383046
+      internalID: -717929350
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: knight death_7
-      rect:
-        serializedVersion: 2
-        x: 224
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ae605489f0d90954d9a5709579940b5a
-      internalID: -1251186541
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: knight death_8
+      name: huesos_4
       rect:
         serializedVersion: 2
         x: 256
         y: 0
-        width: 32
-        height: 32
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -305,41 +221,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3c99f010d68584542a6c274988bfc48c
-      internalID: 1653060136
+      spriteID: 938c5579f29ef0c43ae8ed8c3c916c1b
+      internalID: 424628910
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: knight death_9
-      rect:
-        serializedVersion: 2
-        x: 288
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bef6e27f15e806a4aa1d793e8e04b0eb
-      internalID: -142891532
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: knight death_10
+      name: huesos_5
       rect:
         serializedVersion: 2
         x: 320
         y: 0
-        width: 32
-        height: 32
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -347,41 +242,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 05aa7b61d89db5745b09c16cc1a41a03
-      internalID: -1071806400
+      spriteID: 4cb30e3ece1eda84b877f34a99917258
+      internalID: -1543114482
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: knight death_11
-      rect:
-        serializedVersion: 2
-        x: 352
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b3b61db180fedfd4da56982af716a403
-      internalID: -778016879
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: knight death_12
+      name: huesos_6
       rect:
         serializedVersion: 2
         x: 384
         y: 0
-        width: 32
-        height: 32
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -389,41 +263,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8fb03bf5d94e3f64db20f30a738f7a6d
-      internalID: -1320887173
+      spriteID: d48edf3ad0d5e2b4f84d6a846187c10a
+      internalID: -440220343
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: knight death_13
-      rect:
-        serializedVersion: 2
-        x: 416
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ac647c6979fb92b4eb3b229e5ad8eaff
-      internalID: -1423375866
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: knight death_14
+      name: huesos_7
       rect:
         serializedVersion: 2
         x: 448
         y: 0
-        width: 32
-        height: 32
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -431,20 +284,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1d98fac334c69ab499341d702b5085e1
-      internalID: -568310303
+      spriteID: a324d120320fd0446b3a0f09f3f8e338
+      internalID: 1533312528
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: knight death_15
+      name: huesos_8
       rect:
         serializedVersion: 2
-        x: 480
+        x: 512
         y: 0
-        width: 32
-        height: 32
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -452,8 +305,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f91874ea4a707774cabc0b9548f6cb1d
-      internalID: 2137829311
+      spriteID: d1d01c2f2e5c5fd41a1fc2750a348a85
+      internalID: -1996560186
       vertices: []
       indices: 
       edges: []
@@ -469,22 +322,15 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      knight death_0: -223914577
-      knight death_1: 1676857306
-      knight death_10: -1071806400
-      knight death_11: -778016879
-      knight death_12: -1320887173
-      knight death_13: -1423375866
-      knight death_14: -568310303
-      knight death_15: 2137829311
-      knight death_2: -841123984
-      knight death_3: -1692278125
-      knight death_4: 694507807
-      knight death_5: 1731551557
-      knight death_6: 1769933929
-      knight death_7: -1251186541
-      knight death_8: 1653060136
-      knight death_9: -142891532
+      huesos_0: 478648426
+      huesos_1: 44883280
+      huesos_2: -1184230073
+      huesos_3: -717929350
+      huesos_4: 424628910
+      huesos_5: -1543114482
+      huesos_6: -440220343
+      huesos_7: 1533312528
+      huesos_8: -1996560186
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

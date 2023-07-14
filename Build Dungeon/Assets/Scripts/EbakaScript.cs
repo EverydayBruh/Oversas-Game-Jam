@@ -4,5 +4,8 @@ using UnityEngine;
 
 public class EbakaScript : EnemyScript
 {
-   
+    public override void Attack(Entity victim)
+    {
+        base.Attack(victim);
+    }
 }
