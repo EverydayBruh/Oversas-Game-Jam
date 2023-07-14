@@ -83,7 +83,7 @@ public class Room : MonoBehaviour
         IsPlaced = true;
         this.transform.position = position;
         UpdateConnections();
-        //this.GetComponent<DragScript>().enabled= false;
+        this.GetComponent<DragScript>().enabled= false;
         if (this.name.StartsWith("Room")){
             this.name = coordinates.x.ToString() + " " + coordinates.y.ToString()+ "Room";
         }

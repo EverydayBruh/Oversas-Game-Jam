@@ -9,8 +9,8 @@ public class RoomSlot : MonoBehaviour
     private GameObject reference;
     public GameObject room = null;
     public Vector2 coordinates= Vector2.zero;
-    
-    
+
+
     //public RoomSlot(Vector2 coordinates, GameObject preafab, GameObject parent)
     //{
     //    Debug.Log("Created");
@@ -20,10 +20,14 @@ public class RoomSlot : MonoBehaviour
     //    reference = Instantiate(preafab, trans);
     //    reference.transform.parent = parent.transform;
     //}
+    private void Start()
+    {
+        UpdateRoom();
+    }
 
     public int AddRoom(GameObject newroom)
     {
-        if(!IsEmpty) return 1;
+        if(!IsEmpty || IsLocked) return 1;
         IsEmpty= false;
         room = newroom;
         room.GetComponent<Room>().Place(coordinates, this.transform.position);
@@ -56,6 +60,16 @@ public class RoomSlot : MonoBehaviour
     {
         Debug.Log("Cleared");
         if (reference) Destroy(reference);
+    }
+
+    public void Lock()
+    {
+        IsLocked = true;
+    }
+
+    public void Unlock()
+    {
+        IsLocked = false;
     }
     ~RoomSlot()
     {
