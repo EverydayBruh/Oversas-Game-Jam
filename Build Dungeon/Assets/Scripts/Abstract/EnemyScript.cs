@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class EnemyScript : MonoBehaviour, IEntity
+public abstract class EnemyScript : Entity
 {
     public Vector2 enemyOffsetPosition;
     public float health;

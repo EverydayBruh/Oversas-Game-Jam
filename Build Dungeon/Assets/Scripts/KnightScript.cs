@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.PlasticSCM.Editor.WebApi;
 using UnityEngine;
 
-public class KnightScript : MonoBehaviour
+public class KnightScript : Entity
 {
     public float Speed = 10;
     public Vector3 targetPoint;
