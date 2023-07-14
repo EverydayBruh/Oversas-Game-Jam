@@ -2,13 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyScript : MonoBehaviour
+public abstract class EnemyScript : MonoBehaviour, IEntity
 {
     public Vector2 enemyOffsetPosition;
     public float health;
     public float strenght;
     public Vector2 enemyPosition;
     public Vector2 knightPosition;
+    private int damage = 0;
+
 
     /// <summary>
     /// Определяет координаты врага относительно координат комнаты
@@ -28,14 +30,6 @@ public class EnemyScript : MonoBehaviour
         return knightPosition;
     }
 
-    public virtual void Attack()
-    {
-        // Реализация атаки общая для всех врагов
-    }
-
-    public virtual void TakeDamage(float damage)
-    {
-        // Реализация получения урона общая для всех врагов
-    }
+    
 
 }

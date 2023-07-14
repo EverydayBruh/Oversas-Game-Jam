@@ -131,6 +131,13 @@ public class Room : MonoBehaviour
     {
         return neighbors[DirectionToIndex(direction)];
     }
+
+    public RoomSlot GetSlotInDirection(Vector2 direction)
+    {
+        Vector2 slotpos= this.coordinates + direction;
+        return TileManager.GetRoomSlot((int)slotpos.x, (int)slotpos.y).GetComponent<RoomSlot>();
+    }
+
     public void Randomise()
     {
         for (int i = 0; i < 4; i++)

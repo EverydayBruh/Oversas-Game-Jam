@@ -84,11 +84,17 @@ public class KnightGameLogic : MonoBehaviour
         if (interestingRooms.Count == 0) { return null; }
         return interestingRooms[Random.Range(0, interestingRooms.Count)];
     }
+
+    /// <summary>
+    /// Выбираем случайное напрвление и ждём пока не поставят комнату
+    /// </summary>
     private IEnumerator StartWalkinInDirection(Vector3 direction)
     {
         Debug.Log("StartWalkinInDirection" + direction.ToString());
         Vector3 pos = gameObject.transform.position + direction * tileManager.distance_multiplier * 0.4f;
         knight.MoveToPoint(pos);
+        //curRoom.GetSlotInDirection(direction).Unlock()
+        // cur
         while (curRoom.GetRoomInDirection(direction) == null)
         {
             yield return null;
