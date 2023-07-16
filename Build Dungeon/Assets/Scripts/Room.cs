@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[ExecuteAlways]
+//[ExecuteAlways]
 public class Room : MonoBehaviour
 {
     public bool IsPlaced = false;
@@ -87,7 +87,7 @@ public class Room : MonoBehaviour
         if (this.name.StartsWith("Room")){
             this.name = coordinates.x.ToString() + " " + coordinates.y.ToString()+ "Room";
         }
-        roomInventory.InventoryRemoveRoom(this);
+        if(roomInventory.IsInInventory(this)) roomInventory.InventoryRemoveRoom(this);
     }
 
     /// <summary>

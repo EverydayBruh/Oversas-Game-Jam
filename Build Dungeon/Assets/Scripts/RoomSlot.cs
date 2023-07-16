@@ -46,6 +46,7 @@ public class RoomSlot : MonoBehaviour
             return -1;
         }
         IsEmpty = false;
+        Lock();
         room.GetComponent<Room>().Place(coordinates, this.transform.position);
         return 0;
     }
@@ -70,6 +71,10 @@ public class RoomSlot : MonoBehaviour
         anim.SetBool("Play", false);
         anim.enabled = false;
         IsLocked = true;
+        if(IsEmpty == false)
+        {
+            GetComponent<SpriteRenderer>().enabled = false;
+        }
     }
 
     public void Unlock()

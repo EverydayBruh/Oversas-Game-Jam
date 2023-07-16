@@ -101,7 +101,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnRoom: {fileID: 0}
   curRoom: {fileID: 0}
-  rooms: {fileID: 0}
 --- !u!114 &3992514907311914967
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114,6 +113,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc28fe39e2195c54b812a78cdddbad54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsAlive: 1
+  attackDelay: 2
   Speed: 2
   targetPoint: {x: 0, y: 0, z: 0}
   isWalking: 0

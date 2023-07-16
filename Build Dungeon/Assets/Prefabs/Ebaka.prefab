@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3104907165912993950}
   - component: {fileID: 2441117673409218146}
   - component: {fileID: -4910864621420345806}
+  - component: {fileID: 995857501804978915}
   m_Layer: 0
   m_Name: Ebaka
   m_TagString: Untagged
@@ -45,10 +46,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 675e34919863f8543b87b9a9afd1ba0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsAlive: 1
+  attackDelay: 4
   enemyOffsetPosition: {x: 0.3, y: 0}
-  health: 0
-  strenght: 0
-  tileManager: {fileID: 0}
+  health: 3
+  strenght: 1
+  enemyPosition: {x: 0, y: 0}
+  knightPosition: {x: 0, y: 0}
+  animator: {fileID: 995857501804978915}
 --- !u!212 &-4910864621420345806
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -90,7 +95,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: dc7e0a902190ca14ab5858515bbd6602, type: 3}
+  m_Sprite: {fileID: -690620337, guid: 4495e219df6d9994c8069f3d9f075e73, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -101,3 +106,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &995857501804978915
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 906921713663254031}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 66958a61b9022d1408046954111c2a68, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

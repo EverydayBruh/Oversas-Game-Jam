@@ -23,7 +23,7 @@ public class Entity: MonoBehaviour
 
     public virtual void TakeDamage(int damage, Entity source)
     {
-        Debug.Log(this.name + $" tooked {damage}damage from"+ source.name);
+        Debug.Log(this.name + $" took {damage}damage from"+ source.name);
         health -= damage;
         if(health< 0) { Die(); }
     }
