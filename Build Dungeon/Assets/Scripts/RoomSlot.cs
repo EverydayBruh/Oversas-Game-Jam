@@ -70,6 +70,10 @@ public class RoomSlot : MonoBehaviour
         anim.SetBool("Play", false);
         anim.enabled = false;
         IsLocked = true;
+        if(IsEmpty == false)
+        {
+            GetComponent<SpriteRenderer>().enabled = false;
+        }
     }
 
     public void Unlock()
