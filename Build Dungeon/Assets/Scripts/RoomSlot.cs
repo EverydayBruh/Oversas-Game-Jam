@@ -46,6 +46,7 @@ public class RoomSlot : MonoBehaviour
             return -1;
         }
         IsEmpty = false;
+        Lock();
         room.GetComponent<Room>().Place(coordinates, this.transform.position);
         return 0;
     }
