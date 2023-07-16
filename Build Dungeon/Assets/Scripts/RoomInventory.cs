@@ -81,4 +81,10 @@ public class RoomInventory : MonoBehaviour
     {
         transform.position = new Vector3((tileManager.width * tileManager.distance_multiplier)/2, -3 - (y_inventoryOffset/2),-6);
     }
+
+    public bool IsInInventory(Room room)
+    {
+        if (RoomsInventory == null) return false;
+        return RoomsInventory.Contains(room);
+    }
 }
