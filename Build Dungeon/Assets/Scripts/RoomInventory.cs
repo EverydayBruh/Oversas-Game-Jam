@@ -28,10 +28,10 @@ public class RoomInventory : MonoBehaviour
 }
     private void Update()
     {
-        //if(isLerpActive == true)
-        //{
+        if (isLerpActive == true)
+        {
             UpdateRoomInventory();
-        //}   
+        }
         CenterRoomInventory();
     }
     public void CreateRoomInventory()
