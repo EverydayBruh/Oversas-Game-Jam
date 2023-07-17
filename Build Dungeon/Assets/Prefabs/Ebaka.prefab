@@ -47,10 +47,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsAlive: 1
-  attackDelay: 2
-  enemyOffsetPosition: {x: 0.3, y: 0}
+  attackDelay: 1
+  damage: 1
   health: 3
-  strenght: 1
+  enemyOffsetPosition: {x: 0.3, y: 0}
   enemyPosition: {x: 0, y: 0}
   knightPosition: {x: 0, y: 0}
   animator: {fileID: 995857501804978915}

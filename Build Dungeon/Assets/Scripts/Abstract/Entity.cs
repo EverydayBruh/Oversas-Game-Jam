@@ -7,8 +7,8 @@ public class Entity: MonoBehaviour
 {
     public bool IsAlive = true;
     public float attackDelay = 1f; // Задержка между атаками (в секундах)
-    private int damage = 1;
-    private int health = 3;
+    public int damage = 1;
+    public int health = 3;
     public virtual void Attack(List<Entity> victims)
     {
         Entity randomVictim = victims[Random.Range(0, victims.Count)];

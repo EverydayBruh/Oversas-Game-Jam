@@ -35,7 +35,7 @@ public class KnightGameLogic : MonoBehaviour
         if(!visitedRooms.Contains(curRoom)) visitedRooms.Add(curRoom);
         Debug.Log("EnterRoom");
 
-        if(curRoom.enemylist.Count > 0)
+        if(curRoom.HasAliveEnemy())
         {
             StartCoroutine(FightRoutine());
             return 0;

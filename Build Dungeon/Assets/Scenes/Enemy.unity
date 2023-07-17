@@ -914,6 +914,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Knight
       objectReference: {fileID: 0}
+    - target: {fileID: 3992514907311914967, guid: a2a4b61789c63064f86202f89f35eec4, type: 3}
+      propertyPath: health
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 3992514907311914967, guid: a2a4b61789c63064f86202f89f35eec4, type: 3}
+      propertyPath: attackDelay
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7319365903060253552, guid: a2a4b61789c63064f86202f89f35eec4, type: 3}
       propertyPath: spawnRoom
       value: 

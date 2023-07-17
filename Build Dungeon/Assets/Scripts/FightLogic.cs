@@ -12,6 +12,8 @@ public class FightLogic: MonoBehaviour
     //}
     static public IEnumerator FightCoroutine(List<Entity> sideA, List<Entity> sideB, Action onComplete)
     {
+        foreach(Entity ent in sideA) { Debug.Log(ent.name); }
+        foreach (Entity ent in sideB) { Debug.Log(ent.name); }
         // Бесконечный цикл боя, пока есть живые сущности на обеих сторонах
         while (sideA.Count > 0 && sideB.Count > 0)
         {
