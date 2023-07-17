@@ -14,7 +14,8 @@ public class Room : MonoBehaviour
     public GameObject enemy;
     public EnemyScript enemyScript;
     private RoomInventory roomInventory;
-
+    // функция - List врагов в комнате
+    // функция - есть ли живые враги в комнате
 
     private void OnValidate()
     {

@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsAlive: 1
-  attackDelay: 4
+  attackDelay: 2
   enemyOffsetPosition: {x: 0.3, y: 0}
   health: 3
   strenght: 1
