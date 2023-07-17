@@ -33,7 +33,7 @@ public class RoomSlot : MonoBehaviour
         IsEmpty= false;
         room = newroom;
         room.GetComponent<Room>().Place(coordinates, this.transform.position);
-        room.GetComponent<Room>().UpdateScale(room.GetComponent<Room>().roomInventory.room.transform.localScale);
+        room.GetComponent<Room>().UpdateScale(GameObject.Find("0 2Room").transform.localScale); ;
         Lock();
         room.transform.parent = this.transform;
         return 0;

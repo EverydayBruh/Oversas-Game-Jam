@@ -48,7 +48,7 @@ public class RoomInventory : MonoBehaviour
         temp.GetComponent<Room>().Randomise();
         if (Random.value > 0.5f)
         {
-            temp.enemy = enemiesSpawner.SpawnRandomEnemy(temp);
+           temp.enemylist.Add(enemiesSpawner.SpawnRandomEnemy(temp));
         }
         RoomsInventory.Add(temp);
         currentRoomAmount += 1;

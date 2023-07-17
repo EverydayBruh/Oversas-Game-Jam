@@ -35,7 +35,7 @@ public class KnightGameLogic : MonoBehaviour
         if(!visitedRooms.Contains(curRoom)) visitedRooms.Add(curRoom);
         Debug.Log("EnterRoom");
 
-        if(curRoom.enemy != null)
+        if(curRoom.enemylist.Count > 0)
         {
             StartCoroutine(FightRoutine());
             return 0;
@@ -63,7 +63,7 @@ public class KnightGameLogic : MonoBehaviour
         List<Entity> siteA = new List<Entity>();
         siteA.Add(gameObject.GetComponent<Entity>());
         List<Entity> siteB = new List<Entity>();
-        siteB.Add(curRoom.enemy.GetComponent<Entity>());
+        siteB.AddRange(curRoom.EnemyList());
 
         Coroutine myCoroutine = StartCoroutine(FightLogic.FightCoroutine(siteA, siteB, () => EnterRoom()));
         //while (myCoroutine != null)

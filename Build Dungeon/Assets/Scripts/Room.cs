@@ -11,9 +11,9 @@ public class Room : MonoBehaviour
     public Room[] neighbors = new Room[4];
     private Vector2 coordinates = Vector2.zero;
     private TileManager TileManager;
-    public GameObject enemy;
+    public List<GameObject> enemylist = new List<GameObject>();
     public EnemyScript enemyScript;
-    public RoomInventory roomInventory;
+    private RoomInventory roomInventory;
     // функция - List врагов в комнате
     // функция - есть ли живые враги в комнате
 
@@ -32,9 +32,10 @@ public class Room : MonoBehaviour
     /// </summary>
     public Vector3 KnightPos()
     {
-        if (enemy != null)
+        if (enemylist.Count > 0)
         {
-            enemyScript = enemy.GetComponent<MonoBehaviour>() as EnemyScript;
+            Debug.Log("WARNING");
+            enemyScript = enemylist[0].GetComponent<MonoBehaviour>() as EnemyScript;
             return gameObject.transform.position + enemyScript.GetKnightPosition() * TileManager.distance_multiplier + Vector3.back * 5;
         }
         else
@@ -192,9 +193,32 @@ public class Room : MonoBehaviour
     {
         this.coordinates = coordinate;
     }
+
     public void UpdateScale(Vector3 scale)
     {
         this.transform.localScale = scale;
+    }
+
+    public bool HasAliveEnemy()
+    {
+        foreach (Entity enemy in EnemyList())
+        {
+            if (enemy.IsAlive == true) return true;          
+        }
+        return false;
+    }
+    public List<Entity> EnemyList()
+    {
+        List<Entity> list = new List<Entity>();
+        if (enemylist.Count > 0)
+        {
+            foreach (GameObject enemy in enemylist)
+            {
+                list.Add(enemy.GetComponent<Entity>());
+                Debug.Log("!!!!!!!!!!!!!!!!!!");
+            }
+        }
+        return list;
     }
 
 }
