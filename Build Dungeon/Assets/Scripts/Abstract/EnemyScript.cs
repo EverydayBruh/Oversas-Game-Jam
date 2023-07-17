@@ -5,8 +5,6 @@ using UnityEngine;
 public abstract class EnemyScript : Entity
 {
     public Vector2 enemyOffsetPosition;
-    public float health;
-    public float strenght;
     public Vector2 enemyPosition;
     public Vector2 knightPosition;
     private int damage = 0;
