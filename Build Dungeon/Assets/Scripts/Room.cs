@@ -13,8 +13,9 @@ public class Room : MonoBehaviour
     private TileManager TileManager;
     public GameObject enemy;
     public EnemyScript enemyScript;
-    public RoomInventory roomInventory;
-
+    private RoomInventory roomInventory;
+    // функция - List врагов в комнате
+    // функция - есть ли живые враги в комнате
 
     private void OnValidate()
     {

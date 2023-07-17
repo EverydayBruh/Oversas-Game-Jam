@@ -21,10 +21,15 @@ public class KnightGameLogic : MonoBehaviour
         ChangeRoom(spawnRoom);
     }
 
+    private void EnterRoomVoid()
+    {
+        EnterRoom();
+    }
+
     /// <summary>
     /// Обрабатываеми поведение рыцаря в текущей комнате
     /// </summary>
-    public int EnterRoom() 
+    private int EnterRoom() 
     {
 
         if(!visitedRooms.Contains(curRoom)) visitedRooms.Add(curRoom);
@@ -60,12 +65,14 @@ public class KnightGameLogic : MonoBehaviour
         List<Entity> siteB = new List<Entity>();
         siteB.Add(curRoom.enemy.GetComponent<Entity>());
 
-        Coroutine myCoroutine = StartCoroutine(FightLogic.FightCoroutine(siteA, siteB));
-        while (myCoroutine != null)
-        {
-            yield return null;
-        }
-        EnterRoom();
+        Coroutine myCoroutine = StartCoroutine(FightLogic.FightCoroutine(siteA, siteB, () => EnterRoom()));
+        //while (myCoroutine != null)
+        //{
+        //    //Debug.Log(myCoroutine.ToString());
+        //    yield return null;
+        //}
+        //EnterRoom();
+        yield return null;
     }
 
     private IEnumerator StartWalkinToRoom(Room room)

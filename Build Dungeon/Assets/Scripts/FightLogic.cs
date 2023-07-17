@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class FightLogic: MonoBehaviour
@@ -9,7 +10,7 @@ public class FightLogic: MonoBehaviour
     //{
     //    this.StartCoroutine(FightCoroutine(sideA, sideB));
     //}
-    static public IEnumerator FightCoroutine(List<Entity> sideA, List<Entity> sideB)
+    static public IEnumerator FightCoroutine(List<Entity> sideA, List<Entity> sideB, Action onComplete)
     {
         // Бесконечный цикл боя, пока есть живые сущности на обеих сторонах
         while (sideA.Count > 0 && sideB.Count > 0)
@@ -44,6 +45,8 @@ public class FightLogic: MonoBehaviour
 
             yield return null; // Подождать один кадр перед следующим шагом боя
         }
+        Debug.Log("Fight Ended");
+        onComplete?.Invoke();
     }
 
 
