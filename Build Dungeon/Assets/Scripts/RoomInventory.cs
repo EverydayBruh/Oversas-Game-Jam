@@ -31,6 +31,7 @@ public class RoomInventory : MonoBehaviour
         if (isLerpActive == true)
         {
             UpdateRoomInventory();
+            CenterRoomInventory();
         }
     }
 
@@ -96,13 +97,13 @@ public class RoomInventory : MonoBehaviour
         bool lerp = false;
         for(int x = 0; x < roomlist.Count; x++)
         {
-            if (Mathf.Approximately(roomlist[x].transform.position.x, end_pos[x].x))
+            if ((roomlist[x].transform.position - end_pos[x]).sqrMagnitude < 0.001)
             {
-                if (Mathf.Approximately(roomlist[x].transform.position.y, end_pos[x].y))
-                {
+                //if (Mathf.Approximately(roomlist[x].transform.position.y, end_pos[x].y))
+                //{
                     lerp = lerp || false;
-                }
-                else { return true; }
+                //}
+                //else { return true; }
             }
             else { return true; }
         }
