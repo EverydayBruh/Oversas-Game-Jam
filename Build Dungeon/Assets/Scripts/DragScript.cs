@@ -20,7 +20,7 @@ public class DragScript : MonoBehaviour
     {
         if (dragging)
         {
-            transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition) + offset;
+            transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition) + offset + Vector3.back;
             roomSlot = TileManager.GetRoomSlot(transform.position);          
         }
     }

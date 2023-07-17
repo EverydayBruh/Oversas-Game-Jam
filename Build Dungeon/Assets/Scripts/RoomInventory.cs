@@ -11,19 +11,23 @@ public class RoomInventory : MonoBehaviour
     private List<Room> RoomsInventory;
     public EnemiesSpawner enemiesSpawner;
     public Room room;
+    public Camera mainCamera;
     public int RoomInventoryCapacity = 7;
     public uint AmountForNewRoom = 2;
     private int currentRoomAmount = 0;
-    public float y_inventoryOffset = 3;
+    private float y_inventoryOffset;
+    private float firstScale = 4.3f;
 
     void Start()
     {
         CreateRoomInventory();
-        CenterRoomInventory();
-    }
+        //CenterRoomInventory();
+        y_inventoryOffset = tileManager.distance_multiplier;
+}
     private void Update()
     {
         UpdateRoomInventory();
+        CenterRoomInventory();
     }
     public void CreateRoomInventory()
     {
@@ -58,7 +62,7 @@ public class RoomInventory : MonoBehaviour
         currentRoomAmount -= 1;
         if (currentRoomAmount <= AmountForNewRoom)
         {
-            CreateRoom(currentRoomAmount * tileManager.distance_multiplier);
+            CreateRoom(currentRoomAmount * y_inventoryOffset);
         }
         RoomsInventory.TrimExcess();
     }
@@ -72,14 +76,17 @@ public class RoomInventory : MonoBehaviour
     {
         for (int x = 0; x < currentRoomAmount; x++)
         {
-            Vector3 new_pos = transform.position + new Vector3((x - currentRoomAmount / 2) * tileManager.distance_multiplier - tileManager.distance_multiplier / 2 * (currentRoomAmount % 2 - 1), 0, 0);
+            float new_scale = firstScale / mainCamera.GetComponent<CameraPositionScript>().ratio;
+            RoomsInventory[x].transform.localScale = new Vector3(new_scale, new_scale, new_scale);
+            Vector3 new_pos = transform.position + new Vector3((x - currentRoomAmount / 2) * y_inventoryOffset - y_inventoryOffset / 2 * (currentRoomAmount % 2 - 1), 0, 0) / mainCamera.GetComponent<CameraPositionScript>().ratio;
             RoomsInventory[x].transform.position = Vector3.Lerp(RoomsInventory[x].transform.position, new_pos, smoothTime * Time.deltaTime);
         }      
     }
 
     public void CenterRoomInventory()
     {
-        transform.position = new Vector3((tileManager.width * tileManager.distance_multiplier)/2, -3 - (y_inventoryOffset/2),-6);
+        //transform.position = new Vector3((tileManager.width * tileManager.distance_multiplier)/2, -3 - (y_inventoryOffset/2),-6);
+        transform.position = mainCamera.transform.position + new Vector3(0,-6 / mainCamera.GetComponent<CameraPositionScript>().ratio, 5 / mainCamera.GetComponent<CameraPositionScript>().ratio);
     }
 
     public bool IsInInventory(Room room)

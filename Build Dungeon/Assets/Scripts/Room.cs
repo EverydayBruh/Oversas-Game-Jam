@@ -13,7 +13,7 @@ public class Room : MonoBehaviour
     private TileManager TileManager;
     public GameObject enemy;
     public EnemyScript enemyScript;
-    private RoomInventory roomInventory;
+    public RoomInventory roomInventory;
 
 
     private void OnValidate()
@@ -190,6 +190,10 @@ public class Room : MonoBehaviour
     public void SetCoordinates(Vector2 coordinate)
     {
         this.coordinates = coordinate;
+    }
+    public void UpdateScale(Vector3 scale)
+    {
+        this.transform.localScale = scale;
     }
 
 }
