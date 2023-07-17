@@ -1872,6 +1872,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 449147212}
     - target: {fileID: 4127078121200356088, guid: dc1becb3bcd320a4097ce24cc809ed58, type: 3}
+      propertyPath: isLerpActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4127078121200356088, guid: dc1becb3bcd320a4097ce24cc809ed58, type: 3}
       propertyPath: enemiesSpawner
       value: 
       objectReference: {fileID: 1090510010}

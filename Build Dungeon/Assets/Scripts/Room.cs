@@ -32,9 +32,8 @@ public class Room : MonoBehaviour
     /// </summary>
     public Vector3 KnightPos()
     {
-        if (enemylist.Count > 0)
+        if (HasAliveEnemy())
         {
-            Debug.Log("WARNING");
             enemyScript = enemylist[0].GetComponent<MonoBehaviour>() as EnemyScript;
             return gameObject.transform.position + enemyScript.GetKnightPosition() * TileManager.distance_multiplier + Vector3.back * 5;
         }
@@ -215,7 +214,6 @@ public class Room : MonoBehaviour
             foreach (GameObject enemy in enemylist)
             {
                 list.Add(enemy.GetComponent<Entity>());
-                Debug.Log("!!!!!!!!!!!!!!!!!!");
             }
         }
         return list;

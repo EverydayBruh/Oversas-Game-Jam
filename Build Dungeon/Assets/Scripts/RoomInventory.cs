@@ -22,18 +22,18 @@ public class RoomInventory : MonoBehaviour
     void Start()
     {
         CreateRoomInventory();
-        //CenterRoomInventory();
+        CenterRoomInventory();
+        UpdateRoomInventory();
         y_inventoryOffset = tileManager.distance_multiplier;
-        isLerpActive = true;
-}
+    }
     private void Update()
     {
         if (isLerpActive == true)
         {
             UpdateRoomInventory();
         }
-        CenterRoomInventory();
     }
+
     public void CreateRoomInventory()
     {
         RoomsInventory = new List<Room>(RoomInventoryCapacity);
@@ -57,6 +57,7 @@ public class RoomInventory : MonoBehaviour
         }
         RoomsInventory.Add(temp);
         currentRoomAmount += 1;
+        isLerpActive = true;
     }
     /// <summary>
     /// Уменьшает счётчик комнат, находящихся в инвенторе, и создает новые, если комнат недостаточно.
@@ -74,6 +75,7 @@ public class RoomInventory : MonoBehaviour
 
     public float smoothTime = 10F;
 
+    [ContextMenu("Update Room Inventory")]
     /// <summary>
     /// Обновляет инвентарь после добавления или удаления из него комнат.
     /// </summary>
@@ -88,21 +90,23 @@ public class RoomInventory : MonoBehaviour
             RoomsInventory[x].transform.position = Vector3.Lerp(RoomsInventory[x].transform.position, pos_list[x], smoothTime * Time.deltaTime);           
         }
         isLerpActive = IsLerpActive(RoomsInventory, pos_list);
-        Debug.Log("Пока нет");
     }
     public bool IsLerpActive(List<Room> roomlist, List<Vector3> end_pos)
     {
+        bool lerp = false;
         for(int x = 0; x < roomlist.Count; x++)
         {
             if (Mathf.Approximately(roomlist[x].transform.position.x, end_pos[x].x))
             {
                 if (Mathf.Approximately(roomlist[x].transform.position.y, end_pos[x].y))
                 {
-                    return false;
+                    lerp = lerp || false;
                 }
+                else { return true; }
             }
+            else { return true; }
         }
-        return true;
+        return lerp;
     }
 
     public void CenterRoomInventory()
