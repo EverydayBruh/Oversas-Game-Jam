@@ -17,16 +17,21 @@ public class RoomInventory : MonoBehaviour
     private int currentRoomAmount = 0;
     private float y_inventoryOffset;
     private float firstScale = 4.3f;
+    public bool isLerpActive;
 
     void Start()
     {
         CreateRoomInventory();
         //CenterRoomInventory();
         y_inventoryOffset = tileManager.distance_multiplier;
+        isLerpActive = true;
 }
     private void Update()
     {
-        UpdateRoomInventory();
+        //if(isLerpActive == true)
+        //{
+            UpdateRoomInventory();
+        //}   
         CenterRoomInventory();
     }
     public void CreateRoomInventory()
@@ -72,15 +77,32 @@ public class RoomInventory : MonoBehaviour
     /// <summary>
     /// Обновляет инвентарь после добавления или удаления из него комнат.
     /// </summary>
-    private void UpdateRoomInventory()
+    public void UpdateRoomInventory()
     {
+        List<Vector3> pos_list = new List<Vector3>();
         for (int x = 0; x < currentRoomAmount; x++)
         {
             float new_scale = firstScale / mainCamera.GetComponent<CameraPositionScript>().ratio;
             RoomsInventory[x].transform.localScale = new Vector3(new_scale, new_scale, new_scale);
-            Vector3 new_pos = transform.position + new Vector3((x - currentRoomAmount / 2) * y_inventoryOffset - y_inventoryOffset / 2 * (currentRoomAmount % 2 - 1), 0, 0) / mainCamera.GetComponent<CameraPositionScript>().ratio;
-            RoomsInventory[x].transform.position = Vector3.Lerp(RoomsInventory[x].transform.position, new_pos, smoothTime * Time.deltaTime);
-        }      
+            pos_list.Add(transform.position + new Vector3((x - currentRoomAmount / 2) * y_inventoryOffset - y_inventoryOffset / 2 * (currentRoomAmount % 2 - 1), 0, 0) / mainCamera.GetComponent<CameraPositionScript>().ratio);
+            RoomsInventory[x].transform.position = Vector3.Lerp(RoomsInventory[x].transform.position, pos_list[x], smoothTime * Time.deltaTime);           
+        }
+        isLerpActive = IsLerpActive(RoomsInventory, pos_list);
+        Debug.Log("Пока нет");
+    }
+    public bool IsLerpActive(List<Room> roomlist, List<Vector3> end_pos)
+    {
+        for(int x = 0; x < roomlist.Count; x++)
+        {
+            if (Mathf.Approximately(roomlist[x].transform.position.x, end_pos[x].x))
+            {
+                if (Mathf.Approximately(roomlist[x].transform.position.y, end_pos[x].y))
+                {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 
     public void CenterRoomInventory()

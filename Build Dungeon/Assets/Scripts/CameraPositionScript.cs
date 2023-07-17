@@ -33,6 +33,8 @@ public class CameraPositionScript : MonoBehaviour
     public void UpdateCameraScale()
     {
         ratio = firstScale / Camera.main.orthographicSize;
+        inventory.UpdateRoomInventory();
+        inventory.CenterRoomInventory();
         // firstScale = Camera.main.orthographicSize;
     }
 
