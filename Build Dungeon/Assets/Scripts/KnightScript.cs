@@ -54,4 +54,16 @@ public class KnightScript : Entity
     {
         item.transform.parent = gameObject.transform;
     }
+
+    public override void Attack(Entity victim)
+    {
+        base.Attack(victim);
+        //проиграть анимацию
+    }
+
+    public override void TakeDamage(int damage, Entity source)
+    {
+        base.TakeDamage(damage, source);
+        //анимация получения урона
+    }
 }
