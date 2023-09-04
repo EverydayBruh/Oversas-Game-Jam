@@ -10,5 +10,8 @@ public class GameManager : MonoBehaviour
         
     }
 
+    void GenerateLeve(int difficulty) { }
+
+    void NextLevel() { }
     
 }
