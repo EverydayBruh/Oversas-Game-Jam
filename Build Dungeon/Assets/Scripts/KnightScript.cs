@@ -8,6 +8,7 @@ public class KnightScript : Entity
     public float Speed = 10;
     public Vector3 targetPoint;
     public bool isWalking;
+    private Inventory inventory;
 
 
     [Header("Player Animation Settings")]
@@ -58,6 +59,10 @@ public class KnightScript : Entity
     public override void Attack(Entity victim)
     {
         base.Attack(victim);
+        foreach(Item item in inventory.inventory)
+        {
+            //item();
+        }
         //проиграть анимацию
     }
 
