@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.PlasticSCM.Editor.WebApi;
 using UnityEngine;
 
@@ -17,7 +18,10 @@ public class KnightScript : Entity
     // Start is called before the first frame update
     void Start()
     {
-
+        inventory = new Inventory();
+        Bomb booba = new Bomb(); 
+        inventory.items.Add(booba);
+        booba.owner = this;
     }
 
     // Update is called once per frame
@@ -56,13 +60,21 @@ public class KnightScript : Entity
         item.transform.parent = gameObject.transform;
     }
 
-    public override void Attack(Entity victim)
+    public override void Attack(List<Entity> victims)
     {
-        base.Attack(victim);
-        foreach(Item item in inventory.inventory)
+        foreach(Item item in inventory.items)
         {
-            //item();
+            if (item is IWeapon weapon)
+            {
+                // Вызываем метод Attack для предмета, реализующего интерфейс IWeapon
+                weapon.Attack(victims);
+            }
         }
+        if(inventory.items.Count == 0)
+        { 
+            Attack(victims[0]); 
+        }
+        
         //проиграть анимацию
     }
 

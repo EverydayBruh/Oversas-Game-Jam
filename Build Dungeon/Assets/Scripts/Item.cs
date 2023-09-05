@@ -4,40 +4,40 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
+    public Entity owner;
     public bool PickUpable = false;
     public string Name;
-    //public void Attack()  { }
-    //public void Defense()  { }
-    //public void WTF()   { }
 }
 public interface IWeapon
 {
-    void Weapon(int damage);
+    void Attack(List<Entity> victims);
 }
 public interface IArmor
 {
-    void Armor(int def);
+    void Defense();
 }
 public interface IArtifact
 {
-    void Artifact();
+    void WTF(List<Entity> victims);
 }
 
-public class PISYAPOPA : Item, IWeapon
+public class Bomb : Item, IWeapon
 {
-    public void Weapon(int damage)
+    public void Attack(List<Entity> victims)
     {
-        //Attack();
-        //ÃŒ∆≈“ “€¿¿Ã ”¡»“‹ ¬—≈’ –¿«¡Œ“◊» Œ¬ » »’ Ã¿“≈–≈…;
+        foreach (Entity entity in victims)
+        {
+            entity.TakeDamage(2, owner);
+        }
     }
 }
-public class CHLEEEEEEEEN : Item, IArmor, IWeapon
+public class Sword : Item, IWeapon
 {
-    public void Armor(int def)
+    public void Attack(List<Entity> victims)
     {
-        //’»À»“—ﬂ Õ¿ Ã»ÀÀ»ŒÕ ’œ ¿ œŒ“ŒÃ ”Ã»–¿≈“;
+        victims[Random.Range(0, victims.Count)].TakeDamage(3, owner);
     }
-    public void Weapon(int damage)
+    public void WTF(List<Entity> victims)
     {
 
     }
