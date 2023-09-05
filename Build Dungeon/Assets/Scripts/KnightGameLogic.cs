@@ -10,14 +10,27 @@ public class KnightGameLogic : MonoBehaviour
     private List<Room> visitedRooms = new List<Room>();
     private TileManager tileManager;
     private RoomPathFind roomPathFind = new RoomPathFind();
+    private GameManager gameManager;
 
     private void Awake()
     {
         knight = GetComponent<KnightScript>();
         tileManager = FindAnyObjectByType<TileManager>();
+        gameManager = FindAnyObjectByType<GameManager>();
     }
     void Start()
     {
+        if(spawnRoom == null)
+        {
+            Room[] rooms = FindObjectsByType<Room>(FindObjectsSortMode.InstanceID);
+            foreach (Room room in rooms)
+            {
+                if (room.HasEnter)
+                {
+                    spawnRoom = room;
+                }
+            }
+        }
         ChangeRoom(spawnRoom);
     }
 
@@ -40,6 +53,11 @@ public class KnightGameLogic : MonoBehaviour
             StartCoroutine(FightRoutine());
             return 0;
         }
+        if(curRoom.HasExit == true)
+        {
+            StartCoroutine(Exit());
+            return 0;
+        }
 
         if (curRoom.GetDirectons().Length > 0)
         {
@@ -57,6 +75,7 @@ public class KnightGameLogic : MonoBehaviour
         }
         return 0;
     }
+    
 
     private IEnumerator FightRoutine()
     {
@@ -94,7 +113,17 @@ public class KnightGameLogic : MonoBehaviour
         EnterRoom();
     }
 
+    private IEnumerator Exit()
+    {
+        Debug.Log("Go to Exit");
+        knight.MoveToPoint(knight.transform.position + Vector3.down * 5);
+        while (knight.isWalking)
+        {
+            yield return null;
+        }
+        gameManager.NextLevel();
 
+    }
 
     public Room FindInterestingRoom()
     {

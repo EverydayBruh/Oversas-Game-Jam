@@ -6,6 +6,8 @@ using UnityEngine;
 public class Room : MonoBehaviour
 {
     public bool IsPlaced = false;
+    public bool HasExit = false;
+    public bool HasEnter = false;
     public bool[] doors = new bool[4];
     public GameObject[] walls;
     public Room[] neighbors = new Room[4];
@@ -88,7 +90,7 @@ public class Room : MonoBehaviour
         if (this.name.StartsWith("Room")){
             this.name = coordinates.x.ToString() + " " + coordinates.y.ToString()+ "Room";
         }
-        if(roomInventory.IsInInventory(this)) roomInventory.InventoryRemoveRoom(this);
+        if(roomInventory != null && roomInventory.IsInInventory(this)) roomInventory.InventoryRemoveRoom(this);
     }
 
     /// <summary>
@@ -106,6 +108,7 @@ public class Room : MonoBehaviour
     public int UpdateConnection(Vector2 direction)
     {
         Vector2 coord = this.coordinates + direction;
+        TileManager = GameObject.FindGameObjectWithTag("TileManager").GetComponent<TileManager>();
         if (!TileManager.CheckCoordinates((int)coord.x, (int)coord.y))
         {
             doors[DirectionToIndex(direction)] = false;

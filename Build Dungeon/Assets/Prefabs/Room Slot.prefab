@@ -102,6 +102,7 @@ MonoBehaviour:
   IsLocked: 0
   room: {fileID: 0}
   coordinates: {x: 0, y: 0}
+  anim: {fileID: 3457677285990354005}
 --- !u!95 &3457677285990354005
 Animator:
   serializedVersion: 5

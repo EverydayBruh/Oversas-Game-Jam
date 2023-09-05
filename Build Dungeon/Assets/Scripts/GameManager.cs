@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
 
     void GenerateLeve(int difficulty) { }
 
-    void NextLevel() { }
+    public void NextLevel() { 
+        Debug.Log("Next Level!");
+    }
     
 }

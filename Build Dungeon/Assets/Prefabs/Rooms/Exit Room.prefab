@@ -64,6 +64,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 473344609731864109, guid: 1496c749379ee5c43bc4e7613a6a2d93, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b55876207decc81498acef772e08a066, type: 3}
     - target: {fileID: 1126306641868796219, guid: 1496c749379ee5c43bc4e7613a6a2d93, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -71,7 +75,11 @@ PrefabInstance:
     - target: {fileID: 1217558555354891517, guid: 1496c749379ee5c43bc4e7613a6a2d93, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: b55876207decc81498acef772e08a066, type: 3}
+      objectReference: {fileID: 21300000, guid: 772d215a6ee44da458fbe69c8393d76d, type: 3}
+    - target: {fileID: 2521929565873483216, guid: 1496c749379ee5c43bc4e7613a6a2d93, type: 3}
+      propertyPath: isExit
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2521929565873483216, guid: 1496c749379ee5c43bc4e7613a6a2d93, type: 3}
       propertyPath: haveDoor
       value: 0
@@ -82,7 +90,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3415404102046134571, guid: 1496c749379ee5c43bc4e7613a6a2d93, type: 3}
       propertyPath: m_Name
-      value: Enter Variant
+      value: Exit Room
       objectReference: {fileID: 0}
     - target: {fileID: 3661911067966798456, guid: 1496c749379ee5c43bc4e7613a6a2d93, type: 3}
       propertyPath: m_LocalPosition.z
@@ -94,20 +102,44 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4448258416818493462, guid: 1496c749379ee5c43bc4e7613a6a2d93, type: 3}
       propertyPath: isExit
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4448258416818493462, guid: 1496c749379ee5c43bc4e7613a6a2d93, type: 3}
       propertyPath: haveDoor
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4957512299522437691, guid: 1496c749379ee5c43bc4e7613a6a2d93, type: 3}
       propertyPath: m_LocalPosition.z
       value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6198702391173665610, guid: 1496c749379ee5c43bc4e7613a6a2d93, type: 3}
+      propertyPath: HasExit
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6198702391173665610, guid: 1496c749379ee5c43bc4e7613a6a2d93, type: 3}
+      propertyPath: doors.Array.data[0]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6198702391173665610, guid: 1496c749379ee5c43bc4e7613a6a2d93, type: 3}
+      propertyPath: doors.Array.data[1]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6198702391173665610, guid: 1496c749379ee5c43bc4e7613a6a2d93, type: 3}
+      propertyPath: doors.Array.data[2]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6198702391173665610, guid: 1496c749379ee5c43bc4e7613a6a2d93, type: 3}
       propertyPath: doors.Array.data[3]
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6760553467280470661, guid: 1496c749379ee5c43bc4e7613a6a2d93, type: 3}
+      propertyPath: haveDoor
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8110015321298480750, guid: 1496c749379ee5c43bc4e7613a6a2d93, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 772d215a6ee44da458fbe69c8393d76d, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
