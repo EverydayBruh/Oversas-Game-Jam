@@ -6,6 +6,7 @@ TagManager:
   tags:
   - TileManager
   - RoomInventory
+  - GameManager
   layers:
   - Default
   - TransparentFX

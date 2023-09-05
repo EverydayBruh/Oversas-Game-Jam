@@ -9,7 +9,7 @@ public class RoomSlot : MonoBehaviour
     private GameObject reference;
     public GameObject room = null;
     public Vector2 coordinates= Vector2.zero;
-    private Animator anim;
+    public Animator anim;
 
 
     //public RoomSlot(Vector2 coordinates, GameObject preafab, GameObject parent)

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using static UnityEditor.PlayerSettings;
 
 public class TileManager : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class TileManager : MonoBehaviour
     public uint width; // Ширина матрицы
     public uint height; // Высота матрицы
     public float distance_multiplier = 3f;
+    public GameObject EnterPrefab;
+    public GameObject ExitPrefab;
     private GameObject tilemap;
 
 
@@ -40,6 +43,16 @@ public class TileManager : MonoBehaviour
                 //temp_tile.transform.parent = tilemap.transform;
             }
         }
+    }
+    [ContextMenu("Generate Level")]
+    public void GenerateLevel()
+    {
+        UpdateSlots();
+        roomSlots[0, height - 1].GetComponent<RoomSlot>().room = Instantiate(EnterPrefab, new Vector3(), new Quaternion());
+        roomSlots[0, height - 1].GetComponent<RoomSlot>().UpdateRoom();
+        FindAnyObjectByType<KnightGameLogic>().spawnRoom = roomSlots[0, height - 1].GetComponent<RoomSlot>().room.GetComponent<Room>();
+        roomSlots[width - 1, 0].GetComponent<RoomSlot>().room = Instantiate(ExitPrefab, new Vector3(), new Quaternion());
+        roomSlots[width - 1, 0].GetComponent<RoomSlot>().UpdateRoom();
     }
 
     public void FindSlots()
